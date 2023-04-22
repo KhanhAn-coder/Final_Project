@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">51900475_51900798_FinalProject</string>
+    <string name="cart">Cart</string>
+    <string name="chat">Chat</string>
+    <string name="register">REGISTER</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
 </resources>
