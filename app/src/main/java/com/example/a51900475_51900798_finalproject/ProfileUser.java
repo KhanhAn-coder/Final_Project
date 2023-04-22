@@ -2,18 +2,38 @@ package com.example.a51900475_51900798_finalproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class ProfileUser extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class ProfileUser extends AppCompatActivity {
+    ArrayList<String> listUserExtensions = new ArrayList<>();
+    RecyclerView profileUserRV;
+    ProfileUserExtensionsAdapter profileUserExtensionsAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_user);
+
+        profileUserRV = findViewById(R.id.profileUserRV);
+
+        listUserExtensions.add("Đã thích");
+        listUserExtensions.add("Đánh giá của tôi");
+        listUserExtensions.add("Thiết lập tài khoản");
+
+        profileUserExtensionsAdapter = new ProfileUserExtensionsAdapter(listUserExtensions);
+
+        profileUserRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        profileUserRV.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        profileUserRV.setAdapter(profileUserExtensionsAdapter);
+
     }
 
     @Override
