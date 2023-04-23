@@ -21,21 +21,37 @@ public class ProfileUser extends AppCompatActivity {
     RecyclerView profileUserHotSalesRV;
     ProfileUserExtensionsAdapter profileUserExtensionsAdapter;
     ProductsAdapter productsAdapter;
+    TextView tvHotSales;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_user);
+
+        profileUserRV = findViewById(R.id.profileUserRV);
+        tvHotSales = findViewById(R.id.tvHotSales);
+
+
+        listUserExtensions.add("Đã thích");
+        listUserExtensions.add("Đánh giá của tôi");
+        listUserExtensions.add("Thiết lập tài khoản");
+
+        profileUserExtensionsAdapter = new ProfileUserExtensionsAdapter(listUserExtensions);
+
+        profileUserRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        profileUserRV.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        profileUserRV.setAdapter(profileUserExtensionsAdapter);
 
 
 
 
         profileUserHotSalesRV = findViewById(R.id.profileUserHotSalesRV);
 
-        listProducts.add(new Products("Giày thể thao",299000,4,1200));
-        listProducts.add(new Products("Giày thể thao",299000,4,1200));
-        listProducts.add(new Products("Giày thể thao",299000,4,1200));
+        listProducts.add(new Products(R.drawable.sneaker1,"Giày thể thao",299000,4,1200));
+        listProducts.add(new Products(R.drawable.shirt,"Áo phông",125000,5,1200));
+        listProducts.add(new Products(R.drawable.keyboard3,"Bàn phím",2990000,4,1200));
 
         productsAdapter = new ProductsAdapter(listProducts);
+
         profileUserHotSalesRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         profileUserHotSalesRV.setAdapter(productsAdapter);
 

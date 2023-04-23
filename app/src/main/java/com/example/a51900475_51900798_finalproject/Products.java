@@ -1,12 +1,16 @@
 package com.example.a51900475_51900798_finalproject;
 
 public class Products {
+
+
+    private int resourceID;
     private String title;
     private int price;
     private int rating;
     private int sold;
 
-    public Products(String title, int price, int rating, int sold){
+    public Products(int resourceID, String title, int price, int rating, int sold){
+        this.resourceID = resourceID;
         this.title = title;
         this.price = price;
         this.rating = rating;
@@ -40,5 +44,13 @@ public class Products {
     }
     public void setSold(int sold){
         this.sold = sold;
+    }
+
+    public int getResourceID() {
+        return resourceID;
+    }
+
+    public void setResourceID(int resourceID) {
+        this.resourceID = resourceID;
     }
 }
