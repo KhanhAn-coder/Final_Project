@@ -10,29 +10,38 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class ProfileUser extends AppCompatActivity {
     ArrayList<String> listUserExtensions = new ArrayList<>();
+    ArrayList<Products> listProducts = new ArrayList<>();
     RecyclerView profileUserRV;
+    RecyclerView profileUserHotSalesRV;
     ProfileUserExtensionsAdapter profileUserExtensionsAdapter;
+    ProductsAdapter productsAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_user);
 
-        profileUserRV = findViewById(R.id.profileUserRV);
 
-        listUserExtensions.add("Đã thích");
-        listUserExtensions.add("Đánh giá của tôi");
-        listUserExtensions.add("Thiết lập tài khoản");
 
-        profileUserExtensionsAdapter = new ProfileUserExtensionsAdapter(listUserExtensions);
 
-        profileUserRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        profileUserRV.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
-        profileUserRV.setAdapter(profileUserExtensionsAdapter);
+        profileUserHotSalesRV = findViewById(R.id.profileUserHotSalesRV);
+
+        listProducts.add(new Products("Giày thể thao",299000,4,1200));
+        listProducts.add(new Products("Giày thể thao",299000,4,1200));
+        listProducts.add(new Products("Giày thể thao",299000,4,1200));
+
+        productsAdapter = new ProductsAdapter(listProducts);
+        profileUserHotSalesRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        profileUserHotSalesRV.setAdapter(productsAdapter);
+
+
+
+
 
     }
 

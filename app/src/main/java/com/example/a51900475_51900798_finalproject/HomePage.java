@@ -4,16 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
 
-public class MainActivity extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
     ImageButton imgButtonCart, imgButtonChat;
     private ViewPager viewPager;
     CircleIndicator circleIndicator;
@@ -21,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.home_page);
 
         viewPager = findViewById(R.id.viewPager);
         circleIndicator = findViewById(R.id.circleIndicator);

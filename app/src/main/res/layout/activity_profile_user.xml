@@ -8,7 +8,7 @@
     tools:context=".ProfileUser">
 
     <LinearLayout
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:background="#B6A7F6"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -32,7 +32,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center_vertical"
@@ -73,11 +73,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="5"
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/profileUserRV"
+            android:id="@+id/profileUserHotSalesRV"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"/>
+
+
+
+
     </LinearLayout>
 </LinearLayout>
