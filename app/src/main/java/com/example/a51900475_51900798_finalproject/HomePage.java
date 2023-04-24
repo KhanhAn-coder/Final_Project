@@ -11,8 +11,10 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.List;
 
+import kindProduct.KindProduct;
 import category.Category;
 import category.CategoryAdapter;
+import kindProduct.KindProductAdapter;
 import me.relex.circleindicator.CircleIndicator;
 import product.Product;
 
@@ -23,6 +25,9 @@ public class HomePage extends AppCompatActivity {
     private BannerAdapter bannerAdapter;
     private RecyclerView recyclerView_Category;
     private CategoryAdapter categoryAdapter;
+    private RecyclerView recyclerView_KindProduct;
+    private ArrayList<KindProduct> listKindProduct = new ArrayList<>();
+    private KindProductAdapter kindProductAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +57,21 @@ public class HomePage extends AppCompatActivity {
 
         categoryAdapter.setData(getListCategory());
         recyclerView_Category.setAdapter(categoryAdapter);
+
+        // Các loại sản phẩm
+        recyclerView_KindProduct = findViewById(R.id.recyclerView_KindProduct);
+        listKindProduct.add(new KindProduct(R.drawable.camerakind,"Máy ảnh"));
+        listKindProduct.add(new KindProduct(R.drawable.mousekind,"Chuột máy tính"));
+        listKindProduct.add(new KindProduct(R.drawable.watchkind,"Đồng hồ"));
+        listKindProduct.add(new KindProduct(R.drawable.keyboardknid,"Bàn phím"));
+        listKindProduct.add(new KindProduct(R.drawable.sneakerkind,"Giày dép"));
+        listKindProduct.add(new KindProduct(R.drawable.cloteskind,"Quần áo"));
+
+        kindProductAdapter = new KindProductAdapter(listKindProduct);
+        recyclerView_KindProduct.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recyclerView_KindProduct.setAdapter(kindProductAdapter);
+
+
 
 
 

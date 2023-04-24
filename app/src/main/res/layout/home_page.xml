@@ -61,7 +61,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:background="#B6A7F6"
-        android:layout_weight="2.5">
+        android:layout_weight="6">
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="wrap_content"
@@ -77,24 +77,33 @@
             >
         </me.relex.circleindicator.CircleIndicator>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="2">
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="2">
+        android:layout_weight="5">
+
+        <TextView
+            android:id="@+id/textView_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#B6A7F6"
+            android:textSize="18sp"
+            android:padding="6dp"
+            android:text="Loại sản phẩm">
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_KindProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_Category"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_weight="5">
 
         </androidx.recyclerview.widget.RecyclerView>
 
