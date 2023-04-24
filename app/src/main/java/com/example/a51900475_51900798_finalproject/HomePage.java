@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import kindProduct.KindProduct;
 import category.Category;
@@ -23,6 +27,9 @@ public class HomePage extends AppCompatActivity {
     private ViewPager viewPager;
     CircleIndicator circleIndicator;
     private BannerAdapter bannerAdapter;
+    private int currentPage = 0;
+    final long DELAY_MS = 500;
+    final long PERIOD_MS = 3000;
     private RecyclerView recyclerView_Category;
     private CategoryAdapter categoryAdapter;
     private RecyclerView recyclerView_KindProduct;
@@ -43,6 +50,24 @@ public class HomePage extends AppCompatActivity {
         viewPager.setAdapter(bannerAdapter);
         circleIndicator.setViewPager(viewPager);
         bannerAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
+
+        final Handler handler = new Handler();
+        final Runnable update = new Runnable() {
+            @Override
+            public void run() {
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+            }
+        };
+
+
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(update);
+            }
+        },DELAY_MS,PERIOD_MS);
 
         imgButtonCart = findViewById(R.id.imgButtonCart);
         imgButtonChat = findViewById(R.id.imgButtonChat);
