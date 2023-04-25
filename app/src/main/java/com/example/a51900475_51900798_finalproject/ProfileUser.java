@@ -14,13 +14,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import product.Product;
+import product.ProductAdapter;
+
 public class ProfileUser extends AppCompatActivity {
     ArrayList<String> listUserExtensions = new ArrayList<>();
-    ArrayList<Products> listProducts = new ArrayList<>();
+    ArrayList<Product> listProducts = new ArrayList<>();
     RecyclerView profileUserRV;
     RecyclerView profileUserHotSalesRV;
     ProfileUserExtensionsAdapter profileUserExtensionsAdapter;
-    ProductsAdapter productsAdapter;
+    //ProductsAdapter productsAdapter;
+    ProductAdapter productAdapter;
     TextView tvHotSales;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +50,15 @@ public class ProfileUser extends AppCompatActivity {
 
         profileUserHotSalesRV = findViewById(R.id.profileUserHotSalesRV);
 
-        listProducts.add(new Products(R.drawable.sneaker1,"Giày thể thao",299000,4,1200));
-        listProducts.add(new Products(R.drawable.shirt,"Áo phông",125000,5,1200));
-        listProducts.add(new Products(R.drawable.keyboard3,"Bàn phím",2990000,4,1200));
+        listProducts.add(new Product("Giày",299000,4.2,1.2,R.drawable.sneaker1));
+        listProducts.add(new Product("Bàn phím",599000,4.6,1.2,R.drawable.keyboard3));
+        listProducts.add(new Product("Quần áo",150000,5.0,2.5,R.drawable.shirt));
+        productAdapter = new ProductAdapter();
 
-        productsAdapter = new ProductsAdapter(listProducts);
+        productAdapter.setData(listProducts);
 
         profileUserHotSalesRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-        profileUserHotSalesRV.setAdapter(productsAdapter);
+        profileUserHotSalesRV.setAdapter(productAdapter);
 
 
 

@@ -28,9 +28,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Products products = listProducts.get(position);
         holder.tvTitle.setText(products.getTitle());
-        holder.tvPrice.setText(products.getPrice());
-        holder.tvRating.setText(products.getRating());
-        holder.tvSold.setText(products.getSold());
+        holder.tvPrice.setText(String.valueOf(products.getPrice()));
+        holder.tvRating.setText(String.valueOf(products.getRating()));
+        holder.tvSold.setText(String.valueOf(products.getSold()));
 
     }
 

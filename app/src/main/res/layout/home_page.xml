@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="#B6A7F6"
+        android:layout_weight="1"
         android:weightSum="5">
 
         <SearchView
@@ -61,7 +62,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:background="#B6A7F6"
-        android:layout_weight="6">
+        android:layout_weight="4">
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
@@ -97,7 +98,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_KindProduct"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_Category"

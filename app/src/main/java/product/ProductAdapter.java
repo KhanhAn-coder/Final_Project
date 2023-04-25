@@ -19,7 +19,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     public void setData(ArrayList<Product> arrayList){
         this.mProduct = arrayList;
-        notifyDataSetChanged();
     }
 
     @NonNull
