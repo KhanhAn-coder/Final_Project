@@ -109,8 +109,8 @@ public class HomePage extends AppCompatActivity {
         ArrayList<Category> listCategory = new ArrayList<>();
 
         ArrayList<Product> listProduct = new ArrayList<>();
-        listProduct.add(new Product("Giày",299000,4.2,1.2,R.drawable.sneaker1,"mousekind"));
-        listProduct.add(new Product("Bàn phím",599000,4.6,1.2,R.drawable.keyboard3, "type"));
+        listProduct.add(new Product("Giày",299000,4.2,1.2,R.drawable.sneaker1,"mouse"));
+        listProduct.add(new Product("Bàn phím",599000,4.6,1.2,R.drawable.keyboard3, "keyboard"));
 
         listCategory.add(new Category("Gợi ý hôm nay", listProduct));
         return listCategory;
