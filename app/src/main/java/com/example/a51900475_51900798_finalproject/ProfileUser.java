@@ -23,7 +23,7 @@ public class ProfileUser extends AppCompatActivity {
     RecyclerView profileUserRV;
     RecyclerView profileUserHotSalesRV;
     ProfileUserExtensionsAdapter profileUserExtensionsAdapter;
-    //ProductsAdapter productsAdapter;
+
     ProductAdapter productAdapter;
     TextView tvHotSales;
     @Override
@@ -50,9 +50,9 @@ public class ProfileUser extends AppCompatActivity {
 
         profileUserHotSalesRV = findViewById(R.id.profileUserHotSalesRV);
 
-        listProducts.add(new Product("Giày",299000,4.2,1.2,R.drawable.sneaker1));
-        listProducts.add(new Product("Bàn phím",599000,4.6,1.2,R.drawable.keyboard3));
-        listProducts.add(new Product("Quần áo",150000,5.0,2.5,R.drawable.shirt));
+//        listProducts.add(new Product("Giày",299000,4.2,1.2,R.drawable.sneaker1));
+//        listProducts.add(new Product("Bàn phím",599000,4.6,1.2,R.drawable.keyboard3));
+        listProducts.add(new Product("Quần áo",150000,5.0,2.5,R.drawable.shirt,"clothes"));
         productAdapter = new ProductAdapter();
 
         productAdapter.setData(listProducts);
