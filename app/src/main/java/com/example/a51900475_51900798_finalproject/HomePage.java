@@ -85,12 +85,12 @@ public class HomePage extends AppCompatActivity {
 
         // Các loại sản phẩm
         recyclerView_KindProduct = findViewById(R.id.recyclerView_KindProduct);
-        listKindProduct.add(new KindProduct(R.drawable.camerakind,"Máy ảnh"));
-        listKindProduct.add(new KindProduct(R.drawable.mousekind,"Chuột máy tính"));
-        listKindProduct.add(new KindProduct(R.drawable.watchkind,"Đồng hồ"));
-        listKindProduct.add(new KindProduct(R.drawable.keyboardknid,"Bàn phím"));
-        listKindProduct.add(new KindProduct(R.drawable.sneakerkind,"Giày dép"));
-        listKindProduct.add(new KindProduct(R.drawable.cloteskind,"Quần áo"));
+        listKindProduct.add(new KindProduct(R.drawable.keyboardknid,"Máy ảnh"));
+        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Chuột máy tính"));
+        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Đồng hồ"));
+        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Bàn phím"));
+        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Giày dép"));
+        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Quần áo"));
 
         kindProductAdapter = new KindProductAdapter(listKindProduct);
         recyclerView_KindProduct.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
@@ -109,8 +109,8 @@ public class HomePage extends AppCompatActivity {
         ArrayList<Category> listCategory = new ArrayList<>();
 
         ArrayList<Product> listProduct = new ArrayList<>();
-        listProduct.add(new Product("Giày",299000,4.2,1.2,R.drawable.sneaker1));
-        listProduct.add(new Product("Bàn phím",599000,4.6,1.2,R.drawable.keyboard3));
+        listProduct.add(new Product("Giày",299000,4.2,1.2,R.drawable.sneaker1,"mousekind"));
+        listProduct.add(new Product("Bàn phím",599000,4.6,1.2,R.drawable.keyboard3, "type"));
 
         listCategory.add(new Category("Gợi ý hôm nay", listProduct));
         return listCategory;

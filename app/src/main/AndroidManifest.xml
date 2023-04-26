@@ -10,32 +10,45 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.51900475_51900798_FinalProject">
         <activity
-            android:name=".Cart"
-            android:exported="false" />
-        <activity
             android:name=".HomePage"
-            android:exported="false" />
+            android:exported="false">
+
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+
+        </activity>
+
         <activity
-            android:name=".ListMouseProduct"
-            android:exported="false" />
+            android:name=".SignUp"
+            android:exported="false">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+
+        </activity>
         <activity
-            android:name=".ProuctDetails"
+            android:name=".ProfileUser"
+            android:exported="false">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+
+
+        </activity>
+
+
+        <activity
+            android:name=".SignIn"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SignUp"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileUser"
-            android:exported="false" />
-        <activity
-            android:name=".SignIn"
-            android:exported="false" />
     </application>
 
 </manifest>
