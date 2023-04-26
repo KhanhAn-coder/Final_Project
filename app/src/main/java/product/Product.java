@@ -6,6 +6,7 @@ public class Product {
     private double rating;
     private double sold;
     private int sourceID;
+    String type;
 
     public Product(String title, int price, double rating, double sold, int sourceID) {
         this.title = title;
