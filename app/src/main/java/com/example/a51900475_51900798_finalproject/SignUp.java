@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class SignUp extends AppCompatActivity {
-    private Button btnSignUp;
+    private Button btnSignUp, btnSignInAccount;
     private ProgressDialog progressDialog;
     private EditText edtEmailSignUp, edtUserNameSignUp, edtPhoneNumberSignUp, edtPasswordSignUp;
 
@@ -34,7 +34,7 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         // Ánh xạ các button và input field
-        btnSignUp = findViewById(R.id.btnSignUp);
+
         edtEmailSignUp = findViewById(R.id.edtEmailSignUp);
         edtUserNameSignUp = findViewById(R.id.edtUserNameSignUp);
         edtPhoneNumberSignUp = findViewById(R.id.edtPhoneNumberSignUp);
@@ -42,12 +42,26 @@ public class SignUp extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
         // Tạo onClick listener cho button đăng kí
+        btnSignUp = findViewById(R.id.btnSignUp);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CreatAccount();
             }
         });
+
+        btnSignInAccount = findViewById(R.id.btnSignInAccount);
+        btnSignInAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SignInClick();
+            }
+        });
+    }
+
+    private void SignInClick() {
+        Intent intent = new Intent(SignUp.this, SignIn.class);
+        startActivity(intent);
     }
 
     private void CreatAccount() {

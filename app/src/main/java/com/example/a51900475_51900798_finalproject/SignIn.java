@@ -23,9 +23,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SignIn extends AppCompatActivity {
     EditText edtPhoneSignIn, edtPasswordSignIn;
-    Button btnLogin;
+    private Button btnLogin, btnCreateAccount;
     private ProgressDialog progressDialog;
     private String dbParentName = "Users";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +44,22 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
+        btnCreateAccount = findViewById(R.id.btnCreateAccount);
+
+        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAccountClick();
+            }
+        });
 
 
+
+    }
+
+    private void createAccountClick() {
+        Intent intent = new Intent(SignIn.this, SignUp.class);
+        startActivity(intent);
     }
 
     private void SignInClick() {
