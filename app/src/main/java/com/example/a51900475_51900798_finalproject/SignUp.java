@@ -117,13 +117,10 @@ public class SignUp extends AppCompatActivity {
                                         }
                                     }
                                 });
-
-//                        Intent intent = new Intent(SignUp.this, SignIn.class);
-//                        startActivity(intent);
-
-                }
+                    }
                 else{
-                    Toast.makeText(SignUp.this, "Số điện thoại: " + phone +" đã được đăng ký, vui lòng chọn số khác",Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                    Toast.makeText(SignUp.this, "Số điện thoại đã được đăng ký, vui lòng chọn số khác",Toast.LENGTH_SHORT).show();
                 }
             }
 
