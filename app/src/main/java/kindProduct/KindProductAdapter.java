@@ -1,5 +1,6 @@
 package kindProduct;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.a51900475_51900798_finalproject.ListMouseProduct;
 import com.example.a51900475_51900798_finalproject.R;
 
 import java.util.ArrayList;
@@ -47,6 +49,17 @@ public class KindProductAdapter extends RecyclerView.Adapter<KindProductAdapter.
             super(itemView);
             imageViewKindProduct = itemView.findViewById(R.id.imageViewKindProduct);
             tvTitleKindProduct = itemView.findViewById(R.id.tvTitleKindProduct);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (tvTitleKindProduct.getText().toString().equals("Chuột máy tính")){
+                        Intent intent = new Intent(itemView.getContext(), ListMouseProduct.class);
+                        intent.putExtra("kind","mouseproduct");
+                        itemView.getContext().startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }

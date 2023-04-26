@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="20"
+    tools:context=".ProuctDetails">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#B6A7F6"
+        android:layout_weight="2"
+        android:weightSum="5">
+
+        <ImageButton
+            android:id="@+id/imgButtonBack_Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"
+            android:layout_marginStart="16sp"
+            android:background="#B6A7F6"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.5"
+            android:text="Chuột máy tính"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"
+            android:layout_marginStart="16sp"
+            android:padding="8dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <ImageButton
+            android:id="@+id/imgButtonCart_DetailProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"
+            android:layout_marginStart="16sp"
+            android:src="@drawable/cart_icon"
+            android:background="#B6A7F6"
+            android:contentDescription="@string/cart"/>
+
+        <ImageButton
+            android:id="@+id/imgButtonChat_DetailProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:background="#B6A7F6"
+            android:contentDescription="@string/chat"
+            android:src="@drawable/chat_icon" />
+
+    </LinearLayout>
+    
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="30dp"
+        >
+
+        <ImageView
+            android:id="@+id/imageViewDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mouse_4" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvDetailName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:paddingHorizontal="10dp"
+        android:text="Chuột gaming" />
+
+    <TextView
+        android:id="@+id/tvDetailPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:paddingHorizontal="10dp"
+        android:textColor="#FF8787"
+        android:text="100000" />
+
+
+    <TextView
+        android:id="@+id/DetailRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:layout_weight="0.1"
+        android:text="4.5"
+        android:textSize="19sp"
+        android:textColor="#F3F71B"
+        android:drawableRight="@drawable/ic_baseline_star_rate_24"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="10">
+
+        <ImageButton
+            android:id="@+id/imgButtonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#F6E0C9"
+            app:srcCompat="@drawable/ic_baseline_add_24" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:text="1" />
+
+        <ImageButton
+            android:id="@+id/imgButtonRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#F6E0C9"
+            app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="" />
+
+        <Button
+            android:id="@+id/btnAddtoChart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="TextView"
+                android:padding="10dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
