@@ -34,15 +34,14 @@ public class HomePage extends AppCompatActivity {
     private ViewPager viewPager;
     CircleIndicator circleIndicator;
     private BannerAdapter bannerAdapter;
-    private int currentPage = 0;
-    final long DELAY_MS = 500;
-    final long PERIOD_MS = 3000;
     private RecyclerView recyclerView_Category;
     private CategoryAdapter categoryAdapter;
     private RecyclerView recyclerView_KindProduct;
     private ArrayList<KindProduct> listKindProduct = new ArrayList<>();
     private KindProductAdapter kindProductAdapter;
     private BottomNavigationView bottomNavigation;
+    private Handler handler;
+    private Runnable update;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,23 +58,30 @@ public class HomePage extends AppCompatActivity {
         circleIndicator.setViewPager(viewPager);
         bannerAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
 
-        final Handler handler = new Handler();
-        final Runnable update = new Runnable() {
+         handler = new Handler();
+         update = new Runnable() {
             @Override
             public void run() {
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                int currentItem = viewPager.getCurrentItem();
+                int count = viewPager.getAdapter().getCount();
+                if(currentItem == count-1){
+                    viewPager.setCurrentItem(0);
+                }else {
+                    viewPager.setCurrentItem(currentItem+1);
+                }
+                handler.postDelayed(this,3000);
             }
+
+
         };
+         handler.postDelayed(update,3000);
 
 
 
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(update);
-            }
-        },DELAY_MS,PERIOD_MS);
+
+
+
+
 
         imgButtonCart = findViewById(R.id.imgButtonCart);
         imgButtonChat = findViewById(R.id.imgButtonChat);
@@ -159,5 +165,11 @@ public class HomePage extends AppCompatActivity {
         list.add(new Banner(R.drawable.banner1));
         list.add(new Banner(R.drawable.banner2));
         return list;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        handler.removeCallbacks(update);
     }
 }

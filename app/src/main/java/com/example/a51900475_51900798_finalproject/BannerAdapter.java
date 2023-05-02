@@ -47,7 +47,7 @@ public class BannerAdapter extends PagerAdapter {
         if(mListBanner != null){
             return mListBanner.size();
         }
-        return 0;
+        return 2;
     }
 
     @Override
