@@ -6,11 +6,16 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 
@@ -23,6 +28,7 @@ public class ProfileUser extends AppCompatActivity {
     RecyclerView profileUserRV;
     RecyclerView profileUserHotSalesRV;
     ProfileUserExtensionsAdapter profileUserExtensionsAdapter;
+    BottomNavigationView bottomNavigationUserProfile;
 
     ProductAdapter productAdapter;
     TextView tvHotSales;
@@ -60,6 +66,33 @@ public class ProfileUser extends AppCompatActivity {
         profileUserHotSalesRV.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         profileUserHotSalesRV.setAdapter(productAdapter);
 
+        //Bottom Navigation
+        bottomNavigationUserProfile = findViewById(R.id.bottomNavigationUserProfile);
+        Bundle extras = getIntent().getExtras();
+        if (extras!=null){
+            int selectedItemId = extras.getInt("selectedItemID");
+            bottomNavigationUserProfile.setSelectedItemId(selectedItemId);
+        }
+
+        bottomNavigationUserProfile.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.action_userprofile:
+                        Toast.makeText(ProfileUser.this, "Đang ở UserProfile", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_home:
+                        Intent intent = new Intent(ProfileUser.this,HomePage.class);
+                        Bundle extras = new Bundle();
+                        extras.putString("navigate","homepage");
+                        extras.putInt("selectedItemID_home",item.getItemId());
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                }
+                return true;
+            }
+        });
 
 
 

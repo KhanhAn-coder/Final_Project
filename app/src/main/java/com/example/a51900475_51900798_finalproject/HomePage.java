@@ -1,14 +1,21 @@
 package com.example.a51900475_51900798_finalproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +42,7 @@ public class HomePage extends AppCompatActivity {
     private RecyclerView recyclerView_KindProduct;
     private ArrayList<KindProduct> listKindProduct = new ArrayList<>();
     private KindProductAdapter kindProductAdapter;
+    private BottomNavigationView bottomNavigation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +103,36 @@ public class HomePage extends AppCompatActivity {
         kindProductAdapter = new KindProductAdapter(listKindProduct);
         recyclerView_KindProduct.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         recyclerView_KindProduct.setAdapter(kindProductAdapter);
+
+        // Bottom Navigation
+
+        bottomNavigation = findViewById(R.id.bottomNavigation);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null){
+            int selectedItemId = extras.getInt("selectedItemID_home");
+            bottomNavigation.setSelectedItemId(selectedItemId);
+        }
+
+        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.action_home:
+                        Toast.makeText(HomePage.this, "Đang ở homepage", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.action_userprofile:
+                        Intent intent = new Intent(HomePage.this,ProfileUser.class);
+                        Bundle extras = new Bundle();
+                        extras.putString("navigate","userprofile");
+                        extras.putInt("selectedItemID", item.getItemId());
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                }
+                return true;
+            }
+        });
 
 
 
