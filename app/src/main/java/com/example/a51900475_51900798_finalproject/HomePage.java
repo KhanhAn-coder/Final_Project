@@ -88,14 +88,14 @@ public class HomePage extends AppCompatActivity {
 
         //Các category, sản phẩm
 
-        recyclerView_Category = findViewById(R.id.recyclerView_Category);
-        categoryAdapter = new CategoryAdapter(this);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        recyclerView_Category.setLayoutManager(linearLayoutManager);
-
-        categoryAdapter.setData(getListCategory());
-        recyclerView_Category.setAdapter(categoryAdapter);
+//        recyclerView_Category = findViewById(R.id.recyclerView_Category);
+//        categoryAdapter = new CategoryAdapter(this);
+//
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+//        recyclerView_Category.setLayoutManager(linearLayoutManager);
+//
+//        categoryAdapter.setData(getListCategory());
+//        recyclerView_Category.setAdapter(categoryAdapter);
 
         // Các loại sản phẩm
         recyclerView_KindProduct = findViewById(R.id.recyclerView_KindProduct);
@@ -149,16 +149,16 @@ public class HomePage extends AppCompatActivity {
 
     }
 
-    private ArrayList<Category> getListCategory() {
-        ArrayList<Category> listCategory = new ArrayList<>();
-
-        ArrayList<Product> listProduct = new ArrayList<>();
-        listProduct.add(new Product("Giày",299000,4.2,1.2,R.drawable.sneaker1,"mouse"));
-        listProduct.add(new Product("Bàn phím",599000,4.6,1.2,R.drawable.keyboard3, "keyboard"));
-
-        listCategory.add(new Category("Gợi ý hôm nay", listProduct));
-        return listCategory;
-    }
+//    private ArrayList<Category> getListCategory() {
+//        ArrayList<Category> listCategory = new ArrayList<>();
+//
+//        ArrayList<Product> listProduct = new ArrayList<>();
+//        listProduct.add(new Product("Giày",299000,4.2,1.2,R.drawable.sneaker1,"mouse"));
+//        listProduct.add(new Product("Bàn phím",599000,4.6,1.2,R.drawable.keyboard3, "keyboard"));
+//
+//        listCategory.add(new Category("Gợi ý hôm nay", listProduct));
+//        return listCategory;
+//    }
 
     private List<Banner> getListBanner(){
         List<Banner> list = new ArrayList<>();

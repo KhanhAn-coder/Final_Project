@@ -5,10 +5,10 @@ public class Product {
     private int price;
     private double rating;
     private double sold;
-    private int sourceID;
+    private String sourceID;
     private String type;
 
-    public Product(String title, int price, double rating, double sold, int sourceID, String type) {
+    public Product(String title, int price, double rating, double sold, String sourceID, String type) {
         this.title = title;
         this.price = price;
         this.rating = rating;
@@ -37,23 +37,27 @@ public class Product {
         return rating;
     }
 
-    public void setRating(float rating) {
-        this.rating = rating;
-    }
+
 
     public double getSold() {
         return sold;
     }
 
-    public void setSold(int sold) {
+
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public void setSold(double sold) {
         this.sold = sold;
     }
 
-    public int getSourceID() {
+    public String getSourceID() {
         return sourceID;
     }
 
-    public void setSourceID(int sourceID) {
+    public void setSourceID(String sourceID) {
         this.sourceID = sourceID;
     }
 

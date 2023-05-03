@@ -35,7 +35,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             return;
         }
 
-        holder.imageView_item.setImageResource(product.getSourceID());
+//        holder.imageView_item.setImageResource(product.getSourceID());
         holder.textView_title.setText(product.getTitle());
         holder.textView_price.setText(String.valueOf(product.getPrice())+"đ");
         holder.textView_rating.setText(String.valueOf(product.getRating()));

@@ -70,16 +70,6 @@
             android:drawableLeft="@drawable/ic_baseline_lock_24"/>
 
         <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Log In"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="#6D4FED"/>
-
-        <Button
             android:id="@+id/btnForgetPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,6 +78,27 @@
             android:textSize="12sp"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:text="forget password?" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="0dp"
+            android:backgroundTint="#6D4FED"/>
+
+
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btnAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#A491F4"
+            android:textSize="12sp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="Admin?" />
 
         <View
             android:id="@+id/divider"
@@ -125,5 +136,6 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>
