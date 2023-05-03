@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddProductCategory"
+    android:orientation="vertical"
+    android:weightSum="4">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add new product"
+        android:padding="8dp"
+        android:gravity="center"
+        android:textSize="36sp"
+        android:layout_weight="1">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:weightSum="3">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/mouse_category"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/mouse_1"
+                android:layout_weight="1"
+                />
+            <ImageView
+                android:id="@+id/keyboard_category"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/keyboard"
+                android:layout_weight="1"
+                />
+            <ImageView
+                android:id="@+id/shoes_category"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/sneaker1"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/clothes_category"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/cloteskind"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/watch_category"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/watchkind"
+                android:layout_weight="1"
+                />
+            <ImageView
+                android:id="@+id/camera_category"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/camerakind"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
