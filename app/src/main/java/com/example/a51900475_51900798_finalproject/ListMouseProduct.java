@@ -57,18 +57,6 @@ public class ListMouseProduct extends AppCompatActivity {
 
 
 
-        /*listMouseProduct.add(new Product("Chuột máy tính 1",390000,4.6,1.2,R.drawable.mouse_1, "mouse"));
-        listMouseProduct.add(new Product("Chuột máy tính 2",279000,4.5,2.5,R.drawable.mouse_2,"mouse"));
-        listMouseProduct.add(new Product("Chuột máy tính 3",599000,4.8,1.6,R.drawable.mouse_3,"mouse"));
-        listMouseProduct.add(new Product("Chuột máy tính 4",259000,5.0,1.9,R.drawable.mouse_4,"mouse"));
-        listMouseProduct.add(new Product("Chuột máy tính 5",490000,4.3,1.8,R.drawable.mouse_5,"mouse"));
-        listMouseProduct.add(new Product("Chuột máy tính 6",649000,4.5,2.7,R.drawable.mouse_6,"mouse"));
-*/
-       /* mouseProductAdapter = new ProductAdapter();
-        mouseProductAdapter.setData(listMouseProduct);
-
-        rv_mouseProduct.setLayoutManager(new GridLayoutManager(this,2));
-        rv_mouseProduct.setAdapter(mouseProductAdapter);*/
 
         imgButtonBack = findViewById(R.id.imgButtonBack);
         imgButtonBack.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +79,6 @@ public class ListMouseProduct extends AppCompatActivity {
                 query = RootRef.orderByChild("type").equalTo("watch_product");
                 break;
         }
-         // query = RootRef.orderByChild("type").equalTo("watch_product");
         FirebaseRecyclerOptions<Productss> options = new FirebaseRecyclerOptions.Builder<Productss>()
                 .setQuery(query,Productss.class)
                 .build();
