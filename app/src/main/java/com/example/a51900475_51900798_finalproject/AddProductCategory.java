@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class AddProductCategory extends AppCompatActivity implements View.OnClickListener {
-    private ImageView mouse_category, keyboard_category, shoes_category, clothes_category, watch_category, camera_category;
+    private ImageView mouse_category, keyboard_category, shoes_category, clothes_category, watch_category, camera_category, hotSales_category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class AddProductCategory extends AppCompatActivity implements View.OnClic
         clothes_category = findViewById(R.id.clothes_category);
         watch_category = findViewById(R.id.watch_category);
         camera_category = findViewById(R.id.camera_category);
+        hotSales_category = findViewById(R.id.hotSales_category);
 
 
 //        mouse_category.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +38,7 @@ public class AddProductCategory extends AppCompatActivity implements View.OnClic
         clothes_category.setOnClickListener(this);
         watch_category.setOnClickListener(this);
         camera_category.setOnClickListener(this);
+        hotSales_category.setOnClickListener(this);
 
     }
 
@@ -70,6 +72,11 @@ public class AddProductCategory extends AppCompatActivity implements View.OnClic
         else if (view.equals(camera_category)){
             Intent intent = new Intent(AddProductCategory.this, AddProduct.class);
             intent.putExtra("Category","camera_product");
+            startActivity(intent);
+        }
+        else if (view.equals(hotSales_category)){
+            Intent intent = new Intent(AddProductCategory.this, AddProduct.class);
+            intent.putExtra("Category","sales_product");
             startActivity(intent);
         }
 

@@ -74,7 +74,7 @@ public class ListMouseProduct extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Query query = RootRef.orderByChild("type").equalTo("watch_product");
+        Query query = RootRef.orderByChild("type").equalTo("mouse_product");
         FirebaseRecyclerOptions<Productss> options = new FirebaseRecyclerOptions.Builder<Productss>()
                 .setQuery(query,Productss.class)
                 .build();
