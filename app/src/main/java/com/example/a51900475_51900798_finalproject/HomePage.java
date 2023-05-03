@@ -3,6 +3,7 @@ package com.example.a51900475_51900798_finalproject;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -11,12 +12,21 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -32,13 +42,15 @@ import category.CategoryAdapter;
 import kindProduct.KindProductAdapter;
 import me.relex.circleindicator.CircleIndicator;
 import product.Product;
+import product.ProductViewHolder;
+import product.Productss;
 
 public class HomePage extends AppCompatActivity {
     ImageButton imgButtonCart, imgButtonChat;
     private ViewPager viewPager;
     CircleIndicator circleIndicator;
     private BannerAdapter bannerAdapter;
-    private RecyclerView recyclerView_Category;
+    private RecyclerView rv_hotSales;
     private CategoryAdapter categoryAdapter;
     private RecyclerView recyclerView_KindProduct;
     private ArrayList<KindProduct> listKindProduct = new ArrayList<>();
@@ -46,6 +58,7 @@ public class HomePage extends AppCompatActivity {
     private BottomNavigationView bottomNavigation;
     private Handler handler;
     private Runnable update;
+    DatabaseReference RootRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,12 +116,12 @@ public class HomePage extends AppCompatActivity {
 
         // Các loại sản phẩm
         recyclerView_KindProduct = findViewById(R.id.recyclerView_KindProduct);
-        listKindProduct.add(new KindProduct(R.drawable.keyboardknid,"Máy ảnh"));
-        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Chuột máy tính"));
-        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Đồng hồ"));
-        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Bàn phím"));
-        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Giày dép"));
-        listKindProduct.add(new KindProduct(R.drawable.keyboard,"Quần áo"));
+        listKindProduct.add(new KindProduct(R.drawable.camerakind,"Máy ảnh"));
+        listKindProduct.add(new KindProduct(R.drawable.mousekind,"Chuột máy tính"));
+        listKindProduct.add(new KindProduct(R.drawable.watchkind,"Đồng hồ"));
+        listKindProduct.add(new KindProduct(R.drawable.keyboardknid,"Bàn phím"));
+        listKindProduct.add(new KindProduct(R.drawable.sneakerkind,"Giày dép"));
+        listKindProduct.add(new KindProduct(R.drawable.cloteskind,"Quần áo"));
 
         kindProductAdapter = new KindProductAdapter(listKindProduct);
         recyclerView_KindProduct.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
@@ -146,9 +159,38 @@ public class HomePage extends AppCompatActivity {
 
 
 
+        //Lấy sản phẩm gợi ý hôm nay từ Firebase
 
+        RootRef = FirebaseDatabase.getInstance().getReference("Products");
+        rv_hotSales = findViewById(R.id.recyclerView_Category);
+        rv_hotSales.setHasFixedSize(true);
+        rv_hotSales.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        Query query = RootRef.orderByChild("type").equalTo("sales_product");
+        FirebaseRecyclerOptions<Productss> options = new FirebaseRecyclerOptions.Builder<Productss>()
+                .setQuery(query,Productss.class)
+                .build();
 
+        FirebaseRecyclerAdapter<Productss, ProductViewHolder> adapter = new FirebaseRecyclerAdapter<Productss, ProductViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(ProductViewHolder holder, int position, Productss model) {
 
+                holder.textView_title.setText(model.getTitle());
+                holder.textView_price.setText(model.getPrice()+"đ");
+                holder.textView_rating.setText(String.valueOf(model.getRating()));
+                holder.textView_sold.setText(String.valueOf(model.getSold())+"k");
+                Picasso.get().load(model.getSourceID()).into(holder.imageView_item);
+
+            }
+
+            @Override
+            public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_item,parent,false);
+                ProductViewHolder holder = new ProductViewHolder(view);
+                return holder;
+            }
+        };
+        rv_hotSales.setAdapter(adapter);
+        adapter.startListening();
 
 
     }
@@ -175,5 +217,12 @@ public class HomePage extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         handler.removeCallbacks(update);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
     }
 }
