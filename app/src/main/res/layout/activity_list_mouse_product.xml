@@ -79,10 +79,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_mouseProduct"
-        android:layout_margin="8dp"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
         android:layout_weight="12" />
 
 </LinearLayout>
