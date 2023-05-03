@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.a51900475_51900798_finalproject.ListMouseProduct;
+import com.example.a51900475_51900798_finalproject.ListProduct;
 import com.example.a51900475_51900798_finalproject.R;
 
 import java.util.ArrayList;
@@ -54,12 +54,28 @@ public class KindProductAdapter extends RecyclerView.Adapter<KindProductAdapter.
                 @Override
                 public void onClick(View view) {
                     if (tvTitleKindProduct.getText().toString().equals("Chuột máy tính")){
-                        Intent intent = new Intent(itemView.getContext(), ListMouseProduct.class);
+                        Intent intent = new Intent(itemView.getContext(), ListProduct.class);
                         intent.putExtra("type","mouse");
                         itemView.getContext().startActivity(intent);
                     }else if (tvTitleKindProduct.getText().toString().equals("Đồng hồ")){
-                        Intent intent = new Intent(itemView.getContext(),ListMouseProduct.class);
+                        Intent intent = new Intent(itemView.getContext(), ListProduct.class);
                         intent.putExtra("type","watch");
+                        itemView.getContext().startActivity(intent);
+                    }else if (tvTitleKindProduct.getText().toString().equals("Máy ảnh")){
+                        Intent intent = new Intent(itemView.getContext(), ListProduct.class);
+                        intent.putExtra("type","camera");
+                        itemView.getContext().startActivity(intent);
+                    }else if (tvTitleKindProduct.getText().toString().equals("Bàn phím")){
+                        Intent intent = new Intent(itemView.getContext(), ListProduct.class);
+                        intent.putExtra("type","keyboard");
+                        itemView.getContext().startActivity(intent);
+                    }else if (tvTitleKindProduct.getText().toString().equals("Giày dép")){
+                        Intent intent = new Intent(itemView.getContext(), ListProduct.class);
+                        intent.putExtra("type","shoes");
+                        itemView.getContext().startActivity(intent);
+                    }else if (tvTitleKindProduct.getText().toString().equals("Quần áo")){
+                        Intent intent = new Intent(itemView.getContext(), ListProduct.class);
+                        intent.putExtra("type","clothes");
                         itemView.getContext().startActivity(intent);
                     }
 

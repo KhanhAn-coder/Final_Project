@@ -9,17 +9,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -33,7 +28,7 @@ import product.ProductAdapter;
 import product.ProductViewHolder;
 import product.Productss;
 
-public class ListMouseProduct extends AppCompatActivity {
+public class ListProduct extends AppCompatActivity {
     RecyclerView rv_mouseProduct;
     TextView tvType;
     ProductAdapter mouseProductAdapter;
@@ -47,7 +42,7 @@ public class ListMouseProduct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_mouse_product);
+        setContentView(R.layout.activity_list_product);
         RootRef = FirebaseDatabase.getInstance().getReference("Products");
         rv_mouseProduct = findViewById(R.id.rv_mouseProduct);
         rv_mouseProduct.setHasFixedSize(true);
@@ -62,7 +57,7 @@ public class ListMouseProduct extends AppCompatActivity {
         imgButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListMouseProduct.this, HomePage.class);
+                Intent intent = new Intent(ListProduct.this, HomePage.class);
                 intent.putExtra("code","success");
                 startActivity(intent);
             }
@@ -77,6 +72,18 @@ public class ListMouseProduct extends AppCompatActivity {
                 break;
             case "watch":
                 query = RootRef.orderByChild("type").equalTo("watch_product");
+                break;
+            case "camera":
+                query = RootRef.orderByChild("type").equalTo("camera_product");
+                break;
+            case "keyboard":
+                query = RootRef.orderByChild("type").equalTo("keyboard_product");
+                break;
+            case "shoes":
+                query = RootRef.orderByChild("type").equalTo("shoes_product");
+                break;
+            case "clothes":
+                query = RootRef.orderByChild("type").equalTo("clothes_product");
                 break;
         }
         FirebaseRecyclerOptions<Productss> options = new FirebaseRecyclerOptions.Builder<Productss>()
