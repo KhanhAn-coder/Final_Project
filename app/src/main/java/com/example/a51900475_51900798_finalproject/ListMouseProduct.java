@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -34,10 +35,12 @@ import product.Productss;
 
 public class ListMouseProduct extends AppCompatActivity {
     RecyclerView rv_mouseProduct;
+    TextView tvType;
     ProductAdapter mouseProductAdapter;
     ArrayList<Product> listMouseProduct = new ArrayList<>();
     ImageButton imgButtonBack;
     DatabaseReference RootRef;
+    Query query;
 
 
 
@@ -49,6 +52,8 @@ public class ListMouseProduct extends AppCompatActivity {
         rv_mouseProduct = findViewById(R.id.rv_mouseProduct);
         rv_mouseProduct.setHasFixedSize(true);
         rv_mouseProduct.setLayoutManager(new GridLayoutManager(this,2));
+
+        tvType = findViewById(R.id.tvType);
 
 
 
@@ -74,7 +79,19 @@ public class ListMouseProduct extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Query query = RootRef.orderByChild("type").equalTo("watch_product");
+        Intent intent = getIntent();
+
+        String type = intent.getStringExtra("type");
+        tvType.setText(type);
+        switch (type){
+            case "mouse":
+                query = RootRef.orderByChild("type").equalTo("mouse_product");
+                break;
+            case "watch":
+                query = RootRef.orderByChild("type").equalTo("watch_product");
+                break;
+        }
+         // query = RootRef.orderByChild("type").equalTo("watch_product");
         FirebaseRecyclerOptions<Productss> options = new FirebaseRecyclerOptions.Builder<Productss>()
                 .setQuery(query,Productss.class)
                 .build();

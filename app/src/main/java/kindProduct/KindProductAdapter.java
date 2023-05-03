@@ -55,9 +55,14 @@ public class KindProductAdapter extends RecyclerView.Adapter<KindProductAdapter.
                 public void onClick(View view) {
                     if (tvTitleKindProduct.getText().toString().equals("Chuột máy tính")){
                         Intent intent = new Intent(itemView.getContext(), ListMouseProduct.class);
-                        intent.putExtra("kind","mouseproduct");
+                        intent.putExtra("type","mouse");
+                        itemView.getContext().startActivity(intent);
+                    }else if (tvTitleKindProduct.getText().toString().equals("Đồng hồ")){
+                        Intent intent = new Intent(itemView.getContext(),ListMouseProduct.class);
+                        intent.putExtra("type","watch");
                         itemView.getContext().startActivity(intent);
                     }
+
                 }
             });
         }
