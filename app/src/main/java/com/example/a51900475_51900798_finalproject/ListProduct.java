@@ -106,7 +106,11 @@ public class ListProduct extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(ListProduct.this,ProuctDetails.class);
-                            intent.putExtra("productID",model.getProductID());
+                            Bundle extras = new Bundle();
+                            extras.putString("productID",model.getProductID());
+                            extras.putString("type",model.getType());
+                            //intent.putExtra("productID",model.getProductID());
+                            intent.putExtras(extras);
                             startActivity(intent);
                         }
                     });

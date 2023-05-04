@@ -180,6 +180,18 @@ public class HomePage extends AppCompatActivity {
                 holder.textView_sold.setText(String.valueOf(model.getSold())+"k");
                 Picasso.get().load(model.getSourceID()).into(holder.imageView_item);
 
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(HomePage.this,ProuctDetails.class);
+                        Bundle extras = new Bundle();
+                        extras.putString("productID",model.getProductID());
+                        extras.putString("type",model.getType());
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                    }
+                });
+
             }
 
             @Override

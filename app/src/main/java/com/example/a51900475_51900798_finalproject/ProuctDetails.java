@@ -21,11 +21,12 @@ import product.Productss;
 
 public class ProuctDetails extends AppCompatActivity {
     ImageView imageViewDetail;
-    TextView tvDetailName, tvDetailPrice, tvAmount, DetailRating;
+    TextView tvDetailName, tvDetailPrice, tvAmount, DetailRating, tvProductName;
     ImageButton imgButtonAdd, imgButtonRemove, imgButtonBack_Detail;
     Button btnAddtoChart;
     final int code = 0;
     String productID = "";
+    String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +37,13 @@ public class ProuctDetails extends AppCompatActivity {
         tvDetailPrice = findViewById(R.id.tvDetailPrice);
         tvAmount = findViewById(R.id.tvAmount);
         DetailRating = findViewById(R.id.DetailRating);
+        tvProductName = findViewById(R.id.tvProductName);
         imageViewDetail = findViewById(R.id.imageViewDetail);
 
-        productID = getIntent().getStringExtra("productID");
+        //productID = getIntent().getStringExtra("productID");
+        productID = getIntent().getExtras().getString("productID");
+        type = getIntent().getExtras().getString("type");
+        tvProductName.setText(type);
 
         getProductDetails(productID);
 
