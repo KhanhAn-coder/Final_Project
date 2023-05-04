@@ -23,14 +23,6 @@ public class AddProductCategory extends AppCompatActivity implements View.OnClic
         hotSales_category = findViewById(R.id.hotSales_category);
 
 
-//        mouse_category.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(AddProductCategory.this, AddProduct.class);
-//                intent.putExtra("Category","mouse_product");
-//
-//            }
-//        });
 
         mouse_category.setOnClickListener(this);
         keyboard_category.setOnClickListener(this);

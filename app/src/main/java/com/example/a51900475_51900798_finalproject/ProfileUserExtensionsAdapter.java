@@ -1,5 +1,7 @@
 package com.example.a51900475_51900798_finalproject;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +15,15 @@ import java.util.ArrayList;
 
 public class ProfileUserExtensionsAdapter extends RecyclerView.Adapter<ProfileUserExtensionsAdapter.MyViewHolder> {
     ArrayList<String> listUserExtensions;
+    private Context mContext;
 
     public ProfileUserExtensionsAdapter(ArrayList<String> listUserExtensions){
         this.listUserExtensions = listUserExtensions;
+
     }
+
+
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,6 +56,8 @@ public class ProfileUserExtensionsAdapter extends RecyclerView.Adapter<ProfileUs
                         Toast.makeText(itemView.getContext(), "Đánh giá của tôi", Toast.LENGTH_SHORT).show();
                     }else if (extensions.getText().toString().equals("Thiết lập tài khoản")){
                         Toast.makeText(itemView.getContext(), "Thiết lập tài khoản", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(itemView.getContext(), SettingProfile.class);
+                        itemView.getContext().startActivity(intent);
                     }
                 }
             });

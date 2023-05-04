@@ -52,6 +52,7 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
+        //Đăng nhâp tài khoản admin
         btnAdmin = findViewById(R.id.btnAdmin);
         btnAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +74,7 @@ public class SignIn extends AppCompatActivity {
 
 
     }
-
+    //Chuyển người dùng đến trang đăng nhập
     private void createAccountClick() {
         Intent intent = new Intent(SignIn.this, SignUp.class);
         startActivity(intent);
@@ -125,7 +126,9 @@ public class SignIn extends AppCompatActivity {
                             else if (dbParentName.equals("Users")){
                                 Toast.makeText(SignIn.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
+
                                 Intent intent = new Intent(SignIn.this, HomePage.class);
+                                LoggedUser.loggedUser = users;
                                 startActivity(intent);
                             }
                         }else
