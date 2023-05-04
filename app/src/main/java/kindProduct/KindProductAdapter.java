@@ -55,27 +55,27 @@ public class KindProductAdapter extends RecyclerView.Adapter<KindProductAdapter.
                 public void onClick(View view) {
                     if (tvTitleKindProduct.getText().toString().equals("Chuột máy tính")){
                         Intent intent = new Intent(itemView.getContext(), ListProduct.class);
-                        intent.putExtra("type","mouse");
+                        intent.putExtra("type","mouse_product");
                         itemView.getContext().startActivity(intent);
                     }else if (tvTitleKindProduct.getText().toString().equals("Đồng hồ")){
                         Intent intent = new Intent(itemView.getContext(), ListProduct.class);
-                        intent.putExtra("type","watch");
+                        intent.putExtra("type","watch_product");
                         itemView.getContext().startActivity(intent);
                     }else if (tvTitleKindProduct.getText().toString().equals("Máy ảnh")){
                         Intent intent = new Intent(itemView.getContext(), ListProduct.class);
-                        intent.putExtra("type","camera");
+                        intent.putExtra("type","camera_product");
                         itemView.getContext().startActivity(intent);
                     }else if (tvTitleKindProduct.getText().toString().equals("Bàn phím")){
                         Intent intent = new Intent(itemView.getContext(), ListProduct.class);
-                        intent.putExtra("type","keyboard");
+                        intent.putExtra("type","keyboard_product");
                         itemView.getContext().startActivity(intent);
                     }else if (tvTitleKindProduct.getText().toString().equals("Giày dép")){
                         Intent intent = new Intent(itemView.getContext(), ListProduct.class);
-                        intent.putExtra("type","shoes");
+                        intent.putExtra("type","shoes_product");
                         itemView.getContext().startActivity(intent);
                     }else if (tvTitleKindProduct.getText().toString().equals("Quần áo")){
                         Intent intent = new Intent(itemView.getContext(), ListProduct.class);
-                        intent.putExtra("type","clothes");
+                        intent.putExtra("type","clothes_product");
                         itemView.getContext().startActivity(intent);
                     }
 

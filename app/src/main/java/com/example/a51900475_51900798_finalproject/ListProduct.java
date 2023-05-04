@@ -66,7 +66,7 @@ public class ListProduct extends AppCompatActivity {
 
         String type = intent.getStringExtra("type");
         tvType.setText(type);
-        switch (type){
+        /*switch (type){
             case "mouse":
                 query = RootRef.orderByChild("type").equalTo("mouse_product");
                 break;
@@ -85,7 +85,9 @@ public class ListProduct extends AppCompatActivity {
             case "clothes":
                 query = RootRef.orderByChild("type").equalTo("clothes_product");
                 break;
-        }
+        }*/
+
+        query = RootRef.orderByChild("type").equalTo(type);
         FirebaseRecyclerOptions<Productss> options = new FirebaseRecyclerOptions.Builder<Productss>()
                 .setQuery(query,Productss.class)
                 .build();
