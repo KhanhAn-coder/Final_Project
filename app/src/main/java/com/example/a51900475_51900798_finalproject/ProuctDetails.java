@@ -21,13 +21,12 @@ import product.Productss;
 
 public class ProuctDetails extends AppCompatActivity {
     ImageView imageViewDetail;
-    TextView tvDetailName, tvDetailPrice, tvAmount, DetailRating, tvProductName;
+    TextView tvDetailName, tvDetailPrice, tvAmount, DetailRating, tvProductName, tvDescription;
     ImageButton imgButtonAdd, imgButtonRemove, imgButtonBack_Detail;
     Button btnAddtoChart;
     final int code = 0;
     String productID = "";
     String type;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +38,9 @@ public class ProuctDetails extends AppCompatActivity {
         DetailRating = findViewById(R.id.DetailRating);
         tvProductName = findViewById(R.id.tvProductName);
         imageViewDetail = findViewById(R.id.imageViewDetail);
+        tvDescription = findViewById(R.id.tvDescription);
 
-        //productID = getIntent().getStringExtra("productID");
+        //productID,type nhận về từ item trong listProduct
         productID = getIntent().getExtras().getString("productID");
         type = getIntent().getExtras().getString("type");
         tvProductName.setText(type);
@@ -70,9 +70,16 @@ public class ProuctDetails extends AppCompatActivity {
         imgButtonBack_Detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProuctDetails.this,HomePage.class);
-                startActivity(intent);
-                finish();
+                if (type.equals("sales_product")){
+                    Intent intent = new Intent(ProuctDetails.this,HomePage.class);
+                    intent.putExtra("code","success");
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(ProuctDetails.this,ListProduct.class);
+                    intent.putExtra("type",type);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -104,6 +111,7 @@ public class ProuctDetails extends AppCompatActivity {
                     tvDetailName.setText(productss.getTitle());
                     tvDetailPrice.setText(String.valueOf(productss.getPrice()));
                     DetailRating.setText(String.valueOf(productss.getRating()));
+                    tvDescription.setText(productss.getDescription());
                     Picasso.get().load(productss.getSourceID()).into(imageViewDetail);
                 }
             }

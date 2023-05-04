@@ -66,26 +66,7 @@ public class ListProduct extends AppCompatActivity {
 
         String type = intent.getStringExtra("type");
         tvType.setText(type);
-        /*switch (type){
-            case "mouse":
-                query = RootRef.orderByChild("type").equalTo("mouse_product");
-                break;
-            case "watch":
-                query = RootRef.orderByChild("type").equalTo("watch_product");
-                break;
-            case "camera":
-                query = RootRef.orderByChild("type").equalTo("camera_product");
-                break;
-            case "keyboard":
-                query = RootRef.orderByChild("type").equalTo("keyboard_product");
-                break;
-            case "shoes":
-                query = RootRef.orderByChild("type").equalTo("shoes_product");
-                break;
-            case "clothes":
-                query = RootRef.orderByChild("type").equalTo("clothes_product");
-                break;
-        }*/
+
 
         query = RootRef.orderByChild("type").equalTo(type);
         FirebaseRecyclerOptions<Productss> options = new FirebaseRecyclerOptions.Builder<Productss>()
@@ -109,7 +90,6 @@ public class ListProduct extends AppCompatActivity {
                             Bundle extras = new Bundle();
                             extras.putString("productID",model.getProductID());
                             extras.putString("type",model.getType());
-                            //intent.putExtra("productID",model.getProductID());
                             intent.putExtras(extras);
                             startActivity(intent);
                         }
@@ -130,8 +110,6 @@ public class ListProduct extends AppCompatActivity {
         rv_mouseProduct.setAdapter(adapter);
         adapter.startListening();
 
-
-        //options = new FirebaseRecyclerOptions.Builder<Product>().setQuery(RootRef,Product.class);
 
     }
 

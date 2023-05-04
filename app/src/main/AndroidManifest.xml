@@ -16,7 +16,7 @@
             android:name=".AddProduct"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
+            android:name=".SignIn"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,7 +57,7 @@
         </activity>
 
         <activity
-            android:name=".SignIn"
+            android:name=".HomePage"
             android:exported="false">
 
             <!-- <intent-filter> -->
