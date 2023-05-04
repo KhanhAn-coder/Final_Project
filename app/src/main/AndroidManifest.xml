@@ -10,24 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.51900475_51900798_FinalProject">
         <activity
-            android:name=".SettingProfile"
-            android:exported="false" />
-        <activity
             android:name=".AddProductCategory"
             android:exported="false" />
         <activity
             android:name=".AddProduct"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
-            android:exported="false">
+            android:name=".SignIn"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".SignUp"
@@ -40,6 +35,17 @@
 
         </activity>
         <activity
+            android:name=".ProfileUser"
+            android:exported="false">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+
+        </activity>
+
+        <activity
             android:name=".ProuctDetails"
             android:exported="false">
 
@@ -51,23 +57,13 @@
         </activity>
 
         <activity
-            android:name=".ProfileUser"
+            android:name=".HomePage"
             android:exported="false">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
-
-        </activity>
-        <activity
-            android:name=".SignIn"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ListProduct"
