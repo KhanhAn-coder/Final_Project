@@ -10,12 +10,22 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import product.Productss;
+
 public class ProuctDetails extends AppCompatActivity {
     ImageView imageViewDetail;
-    TextView tvDetailName, tvDetailPrice, tvAmount;
+    TextView tvDetailName, tvDetailPrice, tvAmount, DetailRating;
     ImageButton imgButtonAdd, imgButtonRemove, imgButtonBack_Detail;
     Button btnAddtoChart;
     final int code = 0;
+    String productID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +35,12 @@ public class ProuctDetails extends AppCompatActivity {
         tvDetailName = findViewById(R.id.tvDetailName);
         tvDetailPrice = findViewById(R.id.tvDetailPrice);
         tvAmount = findViewById(R.id.tvAmount);
+        DetailRating = findViewById(R.id.DetailRating);
+        imageViewDetail = findViewById(R.id.imageViewDetail);
+
+        productID = getIntent().getStringExtra("productID");
+
+        getProductDetails(productID);
 
         imgButtonAdd = findViewById(R.id.imgButtonAdd);
         imgButtonAdd.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +76,27 @@ public class ProuctDetails extends AppCompatActivity {
                 extras.putInt("amount",Integer.parseInt(tvAmount.getText().toString()));
                 intent.putExtras(extras);
                 startActivity(intent);
+
+            }
+        });
+    }
+
+    private void getProductDetails(String productID) {
+        DatabaseReference RootRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        RootRef.child(productID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    Productss productss = snapshot.getValue(Productss.class);
+                    tvDetailName.setText(productss.getTitle());
+                    tvDetailPrice.setText(String.valueOf(productss.getPrice()));
+                    DetailRating.setText(String.valueOf(productss.getRating()));
+                    Picasso.get().load(productss.getSourceID()).into(imageViewDetail);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
 
             }
         });

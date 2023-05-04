@@ -101,6 +101,15 @@ public class ListProduct extends AppCompatActivity {
                     holder.textView_rating.setText(String.valueOf(model.getRating()));
                     holder.textView_sold.setText(String.valueOf(model.getSold())+"k");
                     Picasso.get().load(model.getSourceID()).into(holder.imageView_item);
+
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(ListProduct.this,ProuctDetails.class);
+                            intent.putExtra("productID",model.getProductID());
+                            startActivity(intent);
+                        }
+                    });
                     
             }
 
