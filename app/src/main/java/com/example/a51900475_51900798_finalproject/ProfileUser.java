@@ -31,7 +31,7 @@ public class ProfileUser extends AppCompatActivity {
     BottomNavigationView bottomNavigationUserProfile;
 
     ProductAdapter productAdapter;
-    TextView tvHotSales;
+    TextView tvHotSales, profile_tv_username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,8 @@ public class ProfileUser extends AppCompatActivity {
 
         profileUserRV = findViewById(R.id.profileUserRV);
         tvHotSales = findViewById(R.id.tvHotSales);
-
+        profile_tv_username = findViewById(R.id.profile_tv_username);
+        profile_tv_username.setText(LoggedUser.loggedUser.getUsername());
 
         listUserExtensions.add("Đã thích");
         listUserExtensions.add("Đánh giá của tôi");
