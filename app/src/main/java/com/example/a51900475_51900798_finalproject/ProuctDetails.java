@@ -62,6 +62,14 @@ public class ProuctDetails extends AppCompatActivity {
             }
         });
         imgButtonBack_Detail = findViewById(R.id.imgButtonBack_Detail);
+        imgButtonBack_Detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProuctDetails.this,HomePage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         btnAddtoChart = findViewById(R.id.btnAddtoChart);
