@@ -15,6 +15,7 @@
         <entry key="..\:/Android/51900475_51900798_Final_Project/app/src/main/res/layout/activity_order.xml" value="0.25" />
         <entry key="..\:/Android/51900475_51900798_Final_Project/app/src/main/res/layout/activity_profile_user.xml" value="0.25" />
         <entry key="..\:/Android/51900475_51900798_Final_Project/app/src/main/res/layout/activity_prouct_details.xml" value="0.25" />
+        <entry key="..\:/Android/51900475_51900798_Final_Project/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Android/51900475_51900798_Final_Project/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Android/51900475_51900798_Final_Project/app/src/main/res/layout/cart_product_item.xml" value="0.25" />
         <entry key="..\:/Android/51900475_51900798_Final_Project/app/src/main/res/layout/home_page.xml" value="0.25" />
@@ -57,7 +58,6 @@
         <entry key="..\:/BaiTap/Hk2 - 2023/Final_Project111/app/src/main/res/layout/activity_sign_in.xml" value="0.2015625" />
         <entry key="..\:/BaiTap/Hk2 - 2023/Final_Project111/app/src/main/res/layout/home_page.xml" value="0.2015625" />
         <entry key="..\:/BaiTap/Hk2 - 2023/Final_Project111/app/src/main/res/layout/user_extension.xml" value="0.2015625" />
-        <entry key="..\:/BaiTap/Hk2 - 2023/Final_Project111/app/src/main/res/menu/menu_bar.xml" value="0.20729166666666668" />
       </map>
     </option>
   </component>

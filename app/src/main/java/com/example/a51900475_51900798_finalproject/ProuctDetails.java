@@ -145,7 +145,6 @@ public class ProuctDetails extends AppCompatActivity {
 
                                         Intent intent = new Intent(ProuctDetails.this,Cart.class);
                                         Bundle extras = new Bundle();
-                                        extras.putString("from","productdetails");
                                         extras.putString("productID",productID);
                                         intent.putExtras(extras);
                                         startActivity(intent);

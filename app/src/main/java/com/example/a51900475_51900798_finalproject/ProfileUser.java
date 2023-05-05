@@ -95,6 +95,7 @@ public class ProfileUser extends AppCompatActivity {
                         Bundle extras = new Bundle();
                         extras.putString("productID",model.getProductID());
                         extras.putString("type",model.getType());
+                        extras.putString("sourceID", model.getSourceID());
                         intent.putExtras(extras);
                         startActivity(intent);
                     }
