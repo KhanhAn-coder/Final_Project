@@ -9,7 +9,7 @@
     android:weightSum="10">
 
     <LinearLayout
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:background="#B6A7F6"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -28,12 +28,12 @@
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:text="HuyHuynh123" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center_vertical"
@@ -79,7 +79,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="6"
         android:orientation="vertical"
         android:weightSum="20">
 
@@ -99,20 +99,20 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_weight="9"/>
+            android:layout_weight="10"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/profileUserRV"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="9.5"/>
+            android:layout_weight="9"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationUserProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
             app:menu="@menu/menu_bottom_nav"
             android:background="@color/white"
             />
