@@ -104,17 +104,6 @@ public class HomePage extends AppCompatActivity {
         imgButtonCart = findViewById(R.id.imgButtonCart);
         imgButtonChat = findViewById(R.id.imgButtonChat);
 
-        //Các category, sản phẩm
-
-//        recyclerView_Category = findViewById(R.id.recyclerView_Category);
-//        categoryAdapter = new CategoryAdapter(this);
-//
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-//        recyclerView_Category.setLayoutManager(linearLayoutManager);
-//
-//        categoryAdapter.setData(getListCategory());
-//        recyclerView_Category.setAdapter(categoryAdapter);
-
         // Các loại sản phẩm
         recyclerView_KindProduct = findViewById(R.id.recyclerView_KindProduct);
         listKindProduct.add(new KindProduct(R.drawable.camerakind,"Máy ảnh"));
