@@ -1,30 +1,41 @@
 package com.example.a51900475_51900798_finalproject;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import cartproduct.CartAdapter;
 import cartproduct.CartProduct;
+import cartproduct.CartProductViewHolder;
 
 public class Cart extends AppCompatActivity {
     RecyclerView rvCart;
     ArrayList<CartProduct> listcartProduct = new ArrayList<>();
-    CartAdapter cartAdapter;
+    Button btnNext;
+    TextView tvTotalPrice;
+    ImageView imageViewCartProduct;
+    DatabaseReference cartListRef;
     ImageButton imgButtonBackCart;
+    Query query;
 
 
 
@@ -35,34 +46,54 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        rvCart = findViewById(R.id.rvCart);
+        tvTotalPrice = findViewById(R.id.tvTotalPrice);
 
-        listcartProduct.add(new CartProduct(R.drawable.mouse_4,"Chuột bàn phím 4",100000,1));
-        cartAdapter = new CartAdapter();
-        cartAdapter.setData(listcartProduct);
+        rvCart = findViewById(R.id.rvCart);
+        rvCart.setHasFixedSize(true);
         rvCart.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        rvCart.setAdapter(cartAdapter);
-        getDataFromProductDetail();
+
+        imageViewCartProduct = findViewById(R.id.imageViewCartProduct);
+
 
         imgButtonBackCart = findViewById(R.id.imgButtonBackCart);
         imgButtonBackCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Cart.this, ProuctDetails.class);
-                intent.putExtra("code","success");
-                startActivity(intent);
+               Intent intent = new Intent(Cart.this,HomePage.class);
+               startActivity(intent);
             }
         });
+
+
+        btnNext = findViewById(R.id.btnNext);
+
+        cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+        FirebaseRecyclerOptions<CartProduct> options = new FirebaseRecyclerOptions.Builder<CartProduct>()
+                .setQuery(cartListRef.child("User View").child(LoggedUser.loggedUser.getPhone())
+                        .child("Products"), CartProduct.class)
+                .build();
+
+        FirebaseRecyclerAdapter<CartProduct, CartProductViewHolder> adapter = new FirebaseRecyclerAdapter<CartProduct, CartProductViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(CartProductViewHolder holder, int position, CartProduct model) {
+                holder.tvCartName.setText(model.getProductName());
+                holder.tvCartAmount.setText(String.valueOf(model.getQuantity()));
+                holder.tvCartPrice.setText(String.valueOf(model.getPrice()));
+                Picasso.get().load(model.getSourceID()).into(holder.imageViewCartProduct);
+
+            }
+
+            @Override
+            public CartProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_product_item,parent,false);
+                CartProductViewHolder holder = new CartProductViewHolder(view);
+                return holder;
+            }
+        };
+        rvCart.setAdapter(adapter);
+        adapter.startListening();
     }
 
-    private void getDataFromProductDetail() {
-        Intent intent = getIntent();
-        Bundle extras =  intent.getExtras();
-        listcartProduct.add(new CartProduct(extras.getInt("imageID"),extras.getString("name"),extras.getInt("price"),extras.getInt("amount")));
-        cartAdapter = new CartAdapter();
-        cartAdapter.setData(listcartProduct);
-        rvCart.setAdapter(cartAdapter);
-    }
 
 
 }

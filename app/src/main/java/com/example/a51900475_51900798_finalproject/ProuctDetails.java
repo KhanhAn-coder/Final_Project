@@ -35,6 +35,7 @@ public class ProuctDetails extends AppCompatActivity {
     final int code = 0;
     String productID = "";
     String type;
+    String sourceID;
     int randomKey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class ProuctDetails extends AppCompatActivity {
         //productID,type nhận về từ item trong listProduct
         productID = getIntent().getExtras().getString("productID");
         type = getIntent().getExtras().getString("type");
+        sourceID = getIntent().getExtras().getString("sourceID");
         tvProductName.setText(type);
 
         getProductDetails(productID);
@@ -103,13 +105,10 @@ public class ProuctDetails extends AppCompatActivity {
         });
     }
 
-    public static int getRandomNumber(int min, int max) {
-        return (new Random()).nextInt((max - min) + 1) + min;
-    }
+
 
     private void addingToCartList() {
-        randomKey = getRandomNumber(10000, 99999);
-        String cartID = "Order" + String.valueOf(randomKey);
+
         String saveCurrentDate, saveCurrentTime;
         Calendar calForDate = Calendar.getInstance();
         SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
@@ -121,7 +120,8 @@ public class ProuctDetails extends AppCompatActivity {
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
 
         final HashMap<String, Object> cartMap = new HashMap<>();
-        cartMap.put("cartID",cartID);
+        //cartMap.put("cartID",cartID);
+        cartMap.put("sourceID",sourceID);
         cartMap.put("productID",productID);
         cartMap.put("productName",tvDetailName.getText().toString());
         cartMap.put("price",Integer.parseInt(tvDetailPrice.getText().toString()));
@@ -129,13 +129,13 @@ public class ProuctDetails extends AppCompatActivity {
         cartMap.put("time",saveCurrentTime);
         cartMap.put("quantity",Integer.parseInt(tvAmount.getText().toString()));
 
-        cartListRef.child("User View").child(cartID).child("Products").child(productID)
+        cartListRef.child("User View").child(LoggedUser.loggedUser.getPhone()).child("Products").child(productID)
                 .updateChildren(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(Task<Void> task) {
                 if (task.isSuccessful()){
-                    cartListRef.child("Admin View").child(cartID).child("Products").child(productID)
+                    cartListRef.child("Admin View").child(LoggedUser.loggedUser.getPhone()).child("Products").child(productID)
                             .updateChildren(cartMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -143,7 +143,11 @@ public class ProuctDetails extends AppCompatActivity {
                                     if (task.isSuccessful()){
                                         Toast.makeText(ProuctDetails.this, "Added to Cart List", Toast.LENGTH_SHORT).show();
 
-                                        Intent intent = new Intent(ProuctDetails.this,HomePage.class);
+                                        Intent intent = new Intent(ProuctDetails.this,Cart.class);
+                                        Bundle extras = new Bundle();
+                                        extras.putString("from","productdetails");
+                                        extras.putString("productID",productID);
+                                        intent.putExtras(extras);
                                         startActivity(intent);
                                     }
                                 }

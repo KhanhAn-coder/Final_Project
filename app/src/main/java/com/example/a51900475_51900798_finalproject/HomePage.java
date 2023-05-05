@@ -102,6 +102,14 @@ public class HomePage extends AppCompatActivity {
 
 
         imgButtonCart = findViewById(R.id.imgButtonCart);
+        imgButtonCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this,Cart.class);
+                intent.putExtra("from","homepage");
+                startActivity(intent);
+            }
+        });
         imgButtonChat = findViewById(R.id.imgButtonChat);
 
         //Các category, sản phẩm

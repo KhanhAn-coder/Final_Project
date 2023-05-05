@@ -13,7 +13,7 @@ public class Productss {
     public Productss() {
 
     }
-    //Con cặc
+
 
     public String getTitle() {
         return title;

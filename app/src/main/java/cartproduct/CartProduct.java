@@ -1,25 +1,37 @@
 package cartproduct;
 
 public class CartProduct {
-    private int resourceID;
-    private String title;
+    private String productName;
+    private String productID;
     private int price;
-    private int amount;
+    private String sourceID;
+    private int quantity;
+    public CartProduct(){
 
-    public int getResourceID() {
-        return resourceID;
     }
 
-    public void setResourceID(int resourceID) {
-        this.resourceID = resourceID;
+    public CartProduct(String productName, String productID, int price, String sourceID, int quantity) {
+        this.productName = productName;
+        this.productID = productID;
+        this.price = price;
+        this.sourceID = sourceID;
+        this.quantity = quantity;
     }
 
-    public String getTitle() {
-        return title;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductID() {
+        return productID;
+    }
+
+    public void setProductID(String productID) {
+        this.productID = productID;
     }
 
     public int getPrice() {
@@ -30,18 +42,19 @@ public class CartProduct {
         this.price = price;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getSourceID() {
+        return sourceID;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setSourceID(String sourceID) {
+        this.sourceID = sourceID;
     }
 
-    public CartProduct(int resourceID, String title, int price, int amount) {
-        this.resourceID = resourceID;
-        this.title = title;
-        this.price = price;
-        this.amount = amount;
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
