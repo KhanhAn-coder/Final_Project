@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -49,6 +50,7 @@ import product.Productss;
 public class HomePage extends AppCompatActivity {
     ImageButton imgButtonCart, imgButtonChat;
     private ViewPager viewPager;
+    SearchView search_bar;
     CircleIndicator circleIndicator;
     private BannerAdapter bannerAdapter;
     private RecyclerView rv_hotSales;
@@ -69,8 +71,8 @@ public class HomePage extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewPager);
         circleIndicator = findViewById(R.id.circleIndicator);
-
-        bannerAdapter = new BannerAdapter(getListBanner(), this);
+        search_bar = findViewById(R.id.search_bar);
+        bannerAdapter = new BannerAdapter(getListBanner(),  this);
 
         viewPager.setAdapter(bannerAdapter);
         circleIndicator.setViewPager(viewPager);
@@ -93,12 +95,6 @@ public class HomePage extends AppCompatActivity {
 
         };
          handler.postDelayed(update,3000);
-
-
-
-
-
-
 
 
         imgButtonCart = findViewById(R.id.imgButtonCart);
@@ -202,6 +198,12 @@ public class HomePage extends AppCompatActivity {
         rv_hotSales.setAdapter(adapter);
         adapter.startListening();
 
+        search_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomePage.this, "TextChange", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
