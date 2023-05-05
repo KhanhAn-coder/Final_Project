@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#B6A7F6"
+    tools:context=".Order">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginVertical="30dp"
+        android:layout_marginHorizontal="50dp">
+
+        <TextView
+            android:id="@+id/tvOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ORDER DETAILS"
+            android:textColor="#A491F4"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"/>
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textSize="15sp"
+            android:hint="Your name"
+            android:textColorHint="#A491F4"
+            android:backgroundTint="#A491F4"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:id="@+id/edtHomeAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textSize="15sp"
+            android:hint="Your home address"
+            android:autofillHints="Your home address"
+            android:textColorHint="#A491F4"
+            android:backgroundTint="#A491F4"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/edtPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="15sp"
+            android:hint="Phone number"
+            android:textColorHint="#A491F4"
+            android:backgroundTint="#A491F4"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"/>
+
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#6D4FED"/>
+
+
+
+
+    </LinearLayout>
+</LinearLayout>

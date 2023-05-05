@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.51900475_51900798_FinalProject">
         <activity
+            android:name=".Order"
+            android:exported="false" />
+        <activity
             android:name=".AddProductCategory"
             android:exported="false" />
         <activity
@@ -54,7 +57,6 @@
             <!-- </intent-filter> -->
 
         </activity>
-
         <activity
             android:name=".ProuctDetails"
             android:exported="false">
@@ -65,7 +67,6 @@
             <!-- </intent-filter> -->
 
         </activity>
-
         <activity
             android:name=".HomePage"
             android:exported="false">
@@ -78,7 +79,6 @@
         <activity
             android:name=".ListProduct"
             android:exported="false" />
-
         <activity
             android:name=".SettingProfile"
             android:exported="false" />

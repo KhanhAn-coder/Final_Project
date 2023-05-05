@@ -66,14 +66,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
+
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvCart"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                     />
+                     >
+
+                </androidx.recyclerview.widget.RecyclerView>
+
             </LinearLayout>
         </ScrollView>
-
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#40FC00"
+            android:text="Calculate" />
 
 
         <LinearLayout
@@ -87,6 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:gravity="center"
                 android:textSize="20sp"
                 android:text="Total Price:" />
 
