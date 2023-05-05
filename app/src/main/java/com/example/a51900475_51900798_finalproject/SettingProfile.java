@@ -3,17 +3,26 @@ package com.example.a51900475_51900798_finalproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class SettingProfile extends AppCompatActivity {
     private EditText profile_username, profile_phone, profile_password, profile_email;
+    Button btn_update;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +32,58 @@ public class SettingProfile extends AppCompatActivity {
         profile_phone = findViewById(R.id.profile_phone);
         profile_password = findViewById(R.id.profile_password);
         profile_email = findViewById(R.id.profile_email);
+        btn_update = findViewById(R.id.btn_update);
 
         showUserInfo(profile_username, profile_phone, profile_password, profile_email);
+
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateInfo();
+            }
+        });
+    }
+
+    private void updateInfo() {
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference();
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    if (snapshot.child("Users").child(LoggedUser.loggedUser.getPhone()).exists()) {
+                        HashMap<String, Object> userInfo = new HashMap<>();
+
+                        userInfo.put("Username", profile_username.getText().toString());
+                        userInfo.put("Password", profile_password.getText().toString());
+                        userInfo.put("PhoneToOrder", profile_phone.getText().toString());
+                        userInfo.put("Email", profile_email.getText().toString());
+
+                        userRef.child("Users").child(LoggedUser.loggedUser.getPhone()).updateChildren(userInfo)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(SettingProfile.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(SettingProfile.this, HomePage.class);
+                                            startActivity(intent);
+                                        } else {
+
+                                            Toast.makeText(SettingProfile.this, "Đã xảy ra lỗi khi đăng ký, vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                    }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        
+
     }
 
     private void showUserInfo(EditText profile_username, EditText profile_phone, EditText profile_password, EditText profile_email) {
