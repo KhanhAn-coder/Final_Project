@@ -61,18 +61,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:background="#B6A7F6"
-        android:weightSum="9">
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="100dp">
-        </androidx.viewpager.widget.ViewPager>
+        android:layout_weight="1"
+        >
+
+
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_weight="2">
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,44 +94,39 @@
             android:textColor="#B6A7F6"
             android:textSize="18sp"
             android:padding="6dp"
-            android:text="Loại sản phẩm">
+            android:text="Các sản phẩm trong cửa hàng">
         </TextView>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_KindProduct"
+            android:id="@+id/userShop_rvProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"/>
 
-        <TextView
-            android:id="@+id/textView_HotSales"
+        <Button
+            android:id="@+id/userShop_btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#B6A7F6"
-            android:textSize="18sp"
-            android:padding="6dp"
-            android:text="Gợi ý hôm nay">
-        </TextView>
+            android:text="Thêm sản phẩm vào cửa hàng">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_Category"
+        </Button>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="3"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigation"
+            android:layout_weight="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3">
+            app:menu="@menu/menu_bottom_nav"
+            android:layout_marginTop="15dp"
 
-        </androidx.recyclerview.widget.RecyclerView>
-
-
+            android:background="@color/white"/>
 
     </LinearLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_weight="2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:menu="@menu/menu_bottom_nav"
-        android:background="@color/white"/>
 
 
 

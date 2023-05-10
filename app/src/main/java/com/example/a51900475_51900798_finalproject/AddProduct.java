@@ -50,7 +50,7 @@ public class AddProduct extends AppCompatActivity {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == RESULT_OK && result.getData() != null){
-                        Intent intent = result.getData();
+
                         imageUri = result.getData().getData();
                         ProductImage.setImageURI(imageUri);
 
@@ -172,12 +172,14 @@ public class AddProduct extends AppCompatActivity {
         productMap.put("type", category);
         productMap.put("sold", Double.valueOf(getRandomNumber(1000, 9999)));
         productMap.put("rating", Double.valueOf(getRandomNumber(0,5)));
+        productMap.put("shopID", LoggedUser.loggedUser.getShopID());
 
         ProductRef.child(productID).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(AddProduct.this, "Put successful", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

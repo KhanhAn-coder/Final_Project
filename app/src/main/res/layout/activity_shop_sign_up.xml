@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ShopSignUp"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Cài đặt thông tin cửa hàng"
+            android:textSize="24sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tên cửa hàng"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"/>
+
+        <EditText
+            android:id="@+id/shopSignUp_ShopName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Nhập tên cửa hàng"
+            android:textSize="13sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="6"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Địa chỉ cửa hàng"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"/>
+
+        <EditText
+            android:id="@+id/shopSignUp_ShopAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Nhập địa chỉ"
+            android:textSize="13sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Email"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"/>
+
+        <EditText
+            android:id="@+id/shopSignUp_ShopEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Nhập email"
+            android:textSize="13sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Số điện thoại"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"/>
+
+        <EditText
+            android:id="@+id/shopSignUp_ShopPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Số điện thoại"
+            android:textSize="13sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="2">
+        <Button
+            android:id="@+id/shopSignUp_btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="Đăng ký cửa hàng"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,17 +1,26 @@
 package com.example.a51900475_51900798_finalproject.Users;
 
 public class Users {
-    private String Email, Password, Phone, Username;
+    private String Email, Password, Phone, Username, ShopID;
 
     public Users(){
 
     }
 
-    public Users(String email, String password, String phone, String username) {
+    public Users(String email, String password, String phone, String username, String shopID) {
         Email = email;
         Password = password;
         Phone = phone;
         Username = username;
+        ShopID = shopID;
+    }
+
+    public String getShopID() {
+        return ShopID;
+    }
+
+    public void setShopID(String shopID) {
+        ShopID = shopID;
     }
 
     public String getEmail() {

@@ -70,13 +70,13 @@ public class HomePage extends AppCompatActivity {
         //Thanh tìm kiếm, giỏ hàng và chat, banner quảng cáo
 
         viewPager = findViewById(R.id.viewPager);
-        circleIndicator = findViewById(R.id.circleIndicator);
+//        circleIndicator = findViewById(R.id.circleIndicator);
         search_bar = findViewById(R.id.search_bar);
         bannerAdapter = new BannerAdapter(getListBanner(),  this);
 
         viewPager.setAdapter(bannerAdapter);
-        circleIndicator.setViewPager(viewPager);
-        bannerAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
+//        circleIndicator.setViewPager(viewPager);
+//        bannerAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
         Log.d("CurrentUser: ",  String.valueOf(LoggedUser.loggedUser.getPhone()));
          handler = new Handler();
          update = new Runnable() {
@@ -121,39 +121,6 @@ public class HomePage extends AppCompatActivity {
         recyclerView_KindProduct.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         recyclerView_KindProduct.setAdapter(kindProductAdapter);
 
-        // Bottom Navigation
-
-        bottomNavigation = findViewById(R.id.bottomNavigation);
-        Bundle extras = getIntent().getExtras();
-        if (extras != null){
-            int selectedItemId = extras.getInt("selectedItemID_home");
-            bottomNavigation.setSelectedItemId(selectedItemId);
-        }
-
-        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.action_home:
-                        Toast.makeText(HomePage.this, "Đang ở homepage", Toast.LENGTH_SHORT).show();
-                        break;
-
-                    case R.id.action_userprofile:
-                        Intent intent = new Intent(HomePage.this,ProfileUser.class);
-                        Bundle extras = new Bundle();
-                        extras.putString("navigate","userprofile");
-                        extras.putInt("selectedItemID", item.getItemId());
-                        intent.putExtras(extras);
-                        startActivity(intent);
-                        break;
-                }
-                return true;
-            }
-        });
-
-
-
-        //Lấy sản phẩm gợi ý hôm nay từ Firebase
 
         RootRef = FirebaseDatabase.getInstance().getReference("Products");
         rv_hotSales = findViewById(R.id.recyclerView_Category);
@@ -198,6 +165,46 @@ public class HomePage extends AppCompatActivity {
         };
         rv_hotSales.setAdapter(adapter);
         adapter.startListening();
+
+
+
+
+
+
+
+        // Bottom Navigation
+        bottomNavigation = findViewById(R.id.bottomNavigation);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null){
+            int selectedItemId = extras.getInt("selectedItemID_home");
+            bottomNavigation.setSelectedItemId(selectedItemId);
+        }
+
+        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.action_home:
+                        Toast.makeText(HomePage.this, "Đang ở homepage", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.action_userprofile:
+                        Intent intent = new Intent(HomePage.this,ProfileUser.class);
+                        Bundle extras = new Bundle();
+                        extras.putString("navigate","userprofile");
+                        extras.putInt("selectedItemID", item.getItemId());
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                }
+                return true;
+            }
+        });
+
+
+
+        //Lấy sản phẩm gợi ý hôm nay từ Firebase
+
 
         search_bar.setOnClickListener(new View.OnClickListener() {
             @Override

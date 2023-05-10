@@ -57,6 +57,7 @@ public class ProfileUser extends AppCompatActivity {
         profile_tv_username.setText(LoggedUser.loggedUser.getUsername());
 
         listUserExtensions.add("Đã thích");
+        listUserExtensions.add("Bắt đầu bán hàng");
         listUserExtensions.add("Đánh giá của tôi");
         listUserExtensions.add("Thiết lập tài khoản");
 
@@ -153,9 +154,6 @@ public class ProfileUser extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_bar,menu);
 
-
-
-
         return true;
     }
 
@@ -164,8 +162,7 @@ public class ProfileUser extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.item_settings:
-                Intent intent = new Intent(ProfileUser.this,SettingProfile.class);
-                startActivity(intent);
+
         }
         return super.onOptionsItemSelected(item);
     }
