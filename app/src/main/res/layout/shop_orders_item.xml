@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvShopCheckOrdersUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvShopCheckOrdersPhoneNumbers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone Numbers"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvShopCheckOrdersAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvShopCheckOrdersPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Price"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btnShowOrderProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:backgroundTint="#FF0000"
+        android:text="Show Order Products" />
+
+</LinearLayout>

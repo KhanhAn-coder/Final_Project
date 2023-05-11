@@ -36,6 +36,7 @@ public class ProuctDetails extends AppCompatActivity {
     String productID = "";
     String type;
     String sourceID;
+    String shopID;
     int randomKey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class ProuctDetails extends AppCompatActivity {
         productID = getIntent().getExtras().getString("productID");
         type = getIntent().getExtras().getString("type");
         sourceID = getIntent().getExtras().getString("sourceID");
+        shopID = getIntent().getExtras().getString("shopID");
         tvProductName.setText(type);
 
         getProductDetails(productID);
@@ -122,6 +124,8 @@ public class ProuctDetails extends AppCompatActivity {
         final HashMap<String, Object> cartMap = new HashMap<>();
         //cartMap.put("cartID",cartID);
         cartMap.put("sourceID",sourceID);
+        cartMap.put("phoneNumber",LoggedUser.loggedUser.getPhone());
+        cartMap.put("shopID",shopID);
         cartMap.put("productID",productID);
         cartMap.put("productName",tvDetailName.getText().toString());
         cartMap.put("price",Integer.parseInt(tvDetailPrice.getText().toString()));

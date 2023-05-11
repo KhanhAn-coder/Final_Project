@@ -22,7 +22,7 @@ import product.ProductViewHolder;
 import product.Productss;
 
 public class UserShop extends AppCompatActivity {
-    Button userShop_btnAdd;
+    Button userShop_btnAdd, userShop_btnCheckOrders;
     DatabaseReference RootRef;
     private RecyclerView userShop_rvProduct;
     @Override
@@ -40,6 +40,17 @@ public class UserShop extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        userShop_btnCheckOrders = findViewById(R.id.userShop_btnCheckOrders);
+        userShop_btnCheckOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserShop.this, ShopCheckOrders.class);
+                intent.putExtra("shopID",LoggedUser.loggedUser.getShopID());
+                startActivity(intent);
+            }
+        });
+
 
         userShop_rvProduct = findViewById(R.id.userShop_rvProduct);
         RootRef = FirebaseDatabase.getInstance().getReference("Products");

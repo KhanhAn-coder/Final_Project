@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShopCheckOrders"
+    android:orientation="vertical"
+    android:weightSum="20">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#B6A7F6"
+        android:layout_weight="1"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/imgButtonBackShopCheckOrders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"
+            android:layout_marginStart="16sp"
+            android:background="#B6A7F6"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+
+        <TextView
+            android:id="@+id/tvShopCheckOrders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.5"
+            android:text="New Orders"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"
+            android:layout_marginStart="16sp"
+            android:padding="8dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ShopCheckOrders"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="19" />
+
+</LinearLayout>

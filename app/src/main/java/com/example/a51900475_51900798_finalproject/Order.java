@@ -79,7 +79,7 @@ public class Order extends AppCompatActivity {
                                                 if(task.isSuccessful()){
                                                     Toast.makeText(Order.this, "Your Order has been successfully ordered", Toast.LENGTH_SHORT).show();
                                                     Intent intent =  new Intent(Order.this,HomePage.class);
-                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                     startActivity(intent);
                                                 }
                                             }

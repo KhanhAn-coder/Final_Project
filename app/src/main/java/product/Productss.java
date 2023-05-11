@@ -9,11 +9,19 @@ public class Productss {
     private String type;
     private String description;
     private String productID;
+    private String shopID;
 
     public Productss() {
 
     }
 
+    public String getShopID() {
+        return shopID;
+    }
+
+    public void setShopID(String shopID) {
+        this.shopID = shopID;
+    }
 
     public String getTitle() {
         return title;
@@ -79,7 +87,7 @@ public class Productss {
         this.productID = productID;
     }
 
-    public Productss(String title, int price, double rating, double sold, String sourceID, String type, String description, String productID) {
+    public Productss(String title, int price, double rating, double sold, String sourceID, String type, String description, String productID, String shopID) {
         this.title = title;
         this.price = price;
         this.rating = rating;
@@ -88,5 +96,6 @@ public class Productss {
         this.type = type;
         this.description = description;
         this.productID = productID;
+        this.shopID = shopID;
     }
 }

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ShopOrdersProducts">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#B6A7F6"
+        android:layout_weight="1"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/imgbtnShopOrdersProductsBackCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"
+            android:layout_marginStart="16sp"
+            android:background="#B6A7F6"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+
+        <TextView
+            android:id="@+id/tvShopOrdersProducts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.5"
+            android:text="Products"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"
+            android:layout_marginStart="16sp"
+            android:padding="8dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="19"
+        android:orientation="vertical"
+        android:weightSum="20">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="14"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvShopOrdersProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </ScrollView>
+        <Button
+            android:id="@+id/btnShopOrdersProductsCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#40FC00"
+            android:text="Calculate" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="Total Price:" />
+
+            <TextView
+                android:id="@+id/tvShopOrdersProductsTotalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="#F50000"
+                android:text="100000 đ" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnShopOrdersProductsNext"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:backgroundTint="#B6A7F6"
+            android:text="Next" />
+    </LinearLayout>
+
+</LinearLayout>
