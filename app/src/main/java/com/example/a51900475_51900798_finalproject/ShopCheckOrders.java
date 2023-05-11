@@ -52,8 +52,11 @@ public class ShopCheckOrders extends AppCompatActivity {
                 holder.btnShowOrderProducts.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(ShopCheckOrders.this, ShopCheckOrders.class);
-                        intent.putExtra("userPhone",model.getPhone());
+                        Intent intent = new Intent(ShopCheckOrders.this, ShopOrdersProducts.class);
+                        Bundle extras = new Bundle();
+                        extras.putString("userPhone",model.getPhone());
+                        extras.putString("shopID",LoggedUser.loggedUser.getShopID());
+                        intent.putExtras(extras);
                         startActivity(intent);
                     }
                 });
