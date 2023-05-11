@@ -93,10 +93,9 @@ public class UserShop extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 if (i==0){
-                                    Intent intent = new Intent(UserShop.this,ProuctDetails.class);
+                                    Intent intent = new Intent(UserShop.this,ShopEditProductDetails.class);
                                     Bundle extras = new Bundle();
                                     extras.putString("productID", model.getProductID());
-                                    extras.putString("sourceID",model.getSourceID());
                                     intent.putExtras(extras);
                                     startActivity(intent);
                                 }

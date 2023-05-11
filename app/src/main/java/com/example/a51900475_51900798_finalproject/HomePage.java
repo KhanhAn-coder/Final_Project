@@ -77,7 +77,7 @@ public class HomePage extends AppCompatActivity {
         viewPager.setAdapter(bannerAdapter);
         circleIndicator.setViewPager(viewPager);
         bannerAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
-        Log.d("CurrentUser: ",  String.valueOf(LoggedUser.loggedUser.getPhone()));
+//        Log.d("CurrentUser: ",  String.valueOf(LoggedUser.loggedUser.getPhone()));
          handler = new Handler();
          update = new Runnable() {
             @Override

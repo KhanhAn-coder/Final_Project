@@ -19,14 +19,7 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/user_Avatar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="40dp"
-        android:contentDescription="userAva"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_baseline_person_4_24"/>
+
 
 
 
@@ -44,20 +37,31 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Profile"
+            android:text="Your product"
             android:textSize="25sp"
             android:textColor="#A491F4"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             />
 
+        <ImageView
+            android:id="@+id/shop_ProductImage"
+            android:background="@color/white"
+            android:layout_width="260dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:cropToPadding="false"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/image_download"/>
+
         <EditText
-            android:id="@+id/profile_username"
+            android:id="@+id/shop_ProductName"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="40dp"
             android:ems="10"
-            android:hint="Email"
+            android:hint="Product Name"
             android:textSize="15sp"
             android:backgroundTint="#A491F4"
             android:textColorHint="#A491F4"
@@ -65,16 +69,16 @@
             android:drawablePadding="5dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:drawableLeft="@drawable/ic_baseline_person_outline_24"/>
+            android:drawableLeft="@drawable/baseline_add_circle_outline_24"/>
 
         <EditText
-            android:id="@+id/profile_phone"
+            android:id="@+id/shop_ProductDescription"
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:layout_height="48dp"
             android:ems="10"
             android:inputType="number"
-            android:hint="Phone number"
+            android:hint="Product Description"
             android:textColor="#A491F4"
             android:textSize="15sp"
             android:backgroundTint="#A491F4"
@@ -82,14 +86,14 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:drawablePadding="5dp"
-            android:drawableStart="@drawable/ic_baseline_phone_24"/>
+            android:drawableStart="@drawable/baseline_add_circle_outline_24"/>
         <EditText
-            android:id="@+id/profile_password"
+            android:id="@+id/shop_ProductPrice"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:ems="10"
-            android:inputType="textPassword"
-            android:hint="Password"
+            android:inputType="number"
+            android:hint="Product Price"
             android:drawablePadding="5dp"
             android:textSize="15sp"
             android:backgroundTint="#A491F4"
@@ -98,24 +102,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:drawableLeft="@drawable/ic_baseline_lock_24"/>
+            android:drawableLeft="@drawable/baseline_add_circle_outline_24"/>
 
-        <EditText
-            android:id="@+id/profile_email"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textSize="15sp"
-            android:backgroundTint="#A491F4"
-            android:textColorHint="#A491F4"
-            android:textColor="#A491F4"
-            android:layout_marginTop="10dp"
-            android:drawablePadding="5dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:drawableLeft="@drawable/ic_baseline_email_24"/>
 
 
         <Button
@@ -130,10 +118,6 @@
 
 
     </LinearLayout>
-
-
-
-
 
 
 </LinearLayout>

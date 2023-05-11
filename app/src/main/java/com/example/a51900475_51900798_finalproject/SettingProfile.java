@@ -1,13 +1,21 @@
 package com.example.a51900475_51900798_finalproject;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,12 +30,32 @@ import java.util.HashMap;
 
 public class SettingProfile extends AppCompatActivity {
     private EditText profile_username, profile_phone, profile_password, profile_email;
+    ImageView userAvatar;
     Button btn_update;
+
+    private Uri imageUri;
+
+
+
+    private ActivityResultLauncher<Intent> mActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null){
+
+                        imageUri = result.getData().getData();
+                        userAvatar.setImageURI(imageUri);
+
+                    }
+                }
+            });
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_profile);
 
+        userAvatar = findViewById(R.id.user_Avatar);
         profile_username = findViewById(R.id.profile_username);
         profile_phone = findViewById(R.id.profile_phone);
         profile_password = findViewById(R.id.profile_password);
@@ -42,9 +70,26 @@ public class SettingProfile extends AppCompatActivity {
                 updateInfo();
             }
         });
+
+
+        userAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openImageGallery();
+            }
+        });
+    }
+
+    private void openImageGallery() {
+        Intent imageIntent = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        mActivityResultLauncher.launch(imageIntent);
+
     }
 
     private void updateInfo() {
+
+
+
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference();
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -82,7 +127,7 @@ public class SettingProfile extends AppCompatActivity {
 
             }
         });
-        
+
 
     }
 

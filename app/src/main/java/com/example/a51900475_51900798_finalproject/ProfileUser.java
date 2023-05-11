@@ -54,7 +54,7 @@ public class ProfileUser extends AppCompatActivity {
         profileUserRV = findViewById(R.id.profileUserRV);
         tvHotSales = findViewById(R.id.tvHotSales);
         profile_tv_username = findViewById(R.id.profile_tv_username);
-        profile_tv_username.setText(LoggedUser.loggedUser.getUsername());
+//        profile_tv_username.setText(LoggedUser.loggedUser.getUsername());
 
         listUserExtensions.add("Đã thích");
         listUserExtensions.add("Bắt đầu bán hàng");
