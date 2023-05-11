@@ -183,6 +183,8 @@ public class AddProduct extends AppCompatActivity {
                 }
             }
         });
+        Intent intent = new Intent(AddProduct.this, UserShop.class);
+        startActivity(intent);
     }
 
 

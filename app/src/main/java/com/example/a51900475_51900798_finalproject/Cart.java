@@ -58,7 +58,7 @@ public class Cart extends AppCompatActivity {
         rvCart.setHasFixedSize(true);
         rvCart.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
-        imageViewCartProduct = findViewById(R.id.imageViewCartProduct);
+//        imageViewCartProduct = findViewById(R.id.imageViewCartProduct);
 
 
         imgButtonBackCart = findViewById(R.id.imgButtonBackCart);
