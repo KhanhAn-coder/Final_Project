@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,26 +31,11 @@ public class ShopEditProductDetails extends AppCompatActivity {
     EditText ProductName, ProductDescription, ProductPrice;
     private Uri imageUri;
     ImageView ProductImage;
-    Intent intent = getIntent();
+
     private StorageReference ProductImageRef;
     private DatabaseReference ProductRef;
     private Button btn_update;
-
-    String prodName = intent.getStringExtra("productID");
-
-    private ActivityResultLauncher<Intent> mActivityResultLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == RESULT_OK && result.getData() != null){
-
-                        imageUri = result.getData().getData();
-                        ProductImage.setImageURI(imageUri);
-
-                    }
-                }
-            });
+    private String prodName;
 
 
     @Override
@@ -62,8 +48,9 @@ public class ShopEditProductDetails extends AppCompatActivity {
         ProductName = findViewById(R.id.shop_ProductName);
         ProductPrice = findViewById(R.id.shop_ProductPrice);
 
-
-
+        Intent intent = getIntent();
+        prodName = String.valueOf(intent.getStringExtra("productID"));
+        Log.d("cc: ", prodName);
 
         showCurrentProductInfo(ProductName, ProductDescription, ProductPrice);
 
@@ -74,15 +61,16 @@ public class ShopEditProductDetails extends AppCompatActivity {
 
 
     private void showCurrentProductInfo(EditText productName, EditText productDescription, EditText productPrice) {
-        DatabaseReference prodRef = FirebaseDatabase.getInstance().getReference().child("Products").child(prodName);
-        prodRef.addValueEventListener(new ValueEventListener() {
+
+        DatabaseReference prodRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        prodRef.child(prodName).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    if (snapshot.child(prodName).exists()){
-                        String prodName = snapshot.child("").getValue().toString();
-                        String prodDescription = snapshot.child("Email").getValue().toString();
-                        String prodPrice = snapshot.child("Phone").getValue().toString();
+                    if (snapshot.exists()){
+                        String prodName = snapshot.child("title").getValue().toString();
+                        String prodDescription = snapshot.child("description").getValue().toString();
+                        String prodPrice = snapshot.child("price").getValue().toString();
 
 
                         productName.setText(prodName);
@@ -99,9 +87,4 @@ public class ShopEditProductDetails extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
 }

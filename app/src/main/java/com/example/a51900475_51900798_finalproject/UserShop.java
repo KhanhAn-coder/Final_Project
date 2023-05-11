@@ -96,6 +96,7 @@ public class UserShop extends AppCompatActivity {
                                     Intent intent = new Intent(UserShop.this,ShopEditProductDetails.class);
                                     Bundle extras = new Bundle();
                                     extras.putString("productID", model.getProductID());
+                                    Log.d("ProductID", model.getProductID());
                                     intent.putExtras(extras);
                                     startActivity(intent);
                                 }
