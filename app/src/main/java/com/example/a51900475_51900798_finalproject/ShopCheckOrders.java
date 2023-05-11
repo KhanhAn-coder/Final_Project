@@ -56,6 +56,7 @@ public class ShopCheckOrders extends AppCompatActivity {
                         Bundle extras = new Bundle();
                         extras.putString("userPhone",model.getPhone());
                         extras.putString("shopID",LoggedUser.loggedUser.getShopID());
+                        extras.putString("address",model.getAddress());
                         intent.putExtras(extras);
                         startActivity(intent);
                     }
