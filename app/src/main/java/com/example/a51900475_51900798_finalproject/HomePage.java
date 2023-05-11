@@ -70,13 +70,13 @@ public class HomePage extends AppCompatActivity {
         //Thanh tìm kiếm, giỏ hàng và chat, banner quảng cáo
 
         viewPager = findViewById(R.id.viewPager);
-//        circleIndicator = findViewById(R.id.circleIndicator);
+        circleIndicator = findViewById(R.id.circleIndicator);
         search_bar = findViewById(R.id.search_bar);
         bannerAdapter = new BannerAdapter(getListBanner(),  this);
 
         viewPager.setAdapter(bannerAdapter);
-//        circleIndicator.setViewPager(viewPager);
-//        bannerAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
+        circleIndicator.setViewPager(viewPager);
+        bannerAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
         Log.d("CurrentUser: ",  String.valueOf(LoggedUser.loggedUser.getPhone()));
          handler = new Handler();
          update = new Runnable() {
@@ -165,11 +165,6 @@ public class HomePage extends AppCompatActivity {
         };
         rv_hotSales.setAdapter(adapter);
         adapter.startListening();
-
-
-
-
-
 
 
         // Bottom Navigation
