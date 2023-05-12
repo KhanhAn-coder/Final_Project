@@ -149,6 +149,7 @@ public class HomePage extends AppCompatActivity {
                         extras.putString("productID",model.getProductID());
                         extras.putString("type",model.getType());
                         extras.putString("sourceID", model.getSourceID());
+                        extras.putString("shopID",model.getShopID());
                         intent.putExtras(extras);
                         startActivity(intent);
                     }

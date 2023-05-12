@@ -1,5 +1,6 @@
 package com.example.a51900475_51900798_finalproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +11,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,6 +24,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.api.LogDescriptor;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,6 +40,7 @@ public class UserShop extends AppCompatActivity {
     Button userShop_btnAdd, userShop_btnCheckOrders;
     DatabaseReference RootRef;
     private RecyclerView userShop_rvProduct;
+    BottomNavigationView bottomNavigationUserProfile;
     TextView userShop_shopName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +154,56 @@ public class UserShop extends AppCompatActivity {
         };
         userShop_rvProduct.setAdapter(adapter);
         adapter.startListening();
+
+
+        //Bottom navigation
+
+        bottomNavigationUserProfile = findViewById(R.id.bottomNavigationUserProfile);
+        Bundle extras = getIntent().getExtras();
+        if (extras!=null){
+            int selectedItemId = extras.getInt("selectedItemID");
+            bottomNavigationUserProfile.setSelectedItemId(selectedItemId);
+        }
+
+        bottomNavigationUserProfile.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.action_userprofile:
+                        Toast.makeText(UserShop.this, "Đang ở UserProfile", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_home:
+                        Intent intent = new Intent(UserShop.this,HomePage.class);
+                        Bundle extras = new Bundle();
+                        extras.putString("navigate","homepage");
+                        extras.putInt("selectedItemID_home",item.getItemId());
+                        intent.putExtras(extras);
+                        startActivity(intent);
+                        break;
+                }
+                return true;
+            }
+        });
+
+
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_bar,menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.item_settings:
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

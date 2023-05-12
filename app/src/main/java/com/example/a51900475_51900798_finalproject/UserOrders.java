@@ -39,6 +39,14 @@ public class UserOrders extends AppCompatActivity {
 
         imgButtonBackUserOrders = findViewById(R.id.imgButtonBackUserOrders);
 
+        imgButtonBackUserOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserOrders.this, ProfileUser.class);
+                startActivity(intent);
+            }
+        });
+
         rv_UserOrders = findViewById(R.id.rv_UserOrders);
         rv_UserOrders.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
 

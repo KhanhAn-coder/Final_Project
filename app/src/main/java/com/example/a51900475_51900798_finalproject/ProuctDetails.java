@@ -29,7 +29,7 @@ import product.Productss;
 
 public class ProuctDetails extends AppCompatActivity {
     ImageView imageViewDetail;
-    TextView tvDetailName, tvDetailPrice, tvAmount, DetailRating, tvProductName, tvDescription;
+    TextView tvDetailName, tvDetailPrice, tvAmount, DetailRating, tvProductName, tvDescription, tv_productShop;
     ImageButton imgButtonAdd, imgButtonRemove, imgButtonBack_Detail;
     Button btnAddtoChart;
     final int code = 0;
@@ -50,14 +50,14 @@ public class ProuctDetails extends AppCompatActivity {
         tvProductName = findViewById(R.id.tvProductName);
         imageViewDetail = findViewById(R.id.imageViewDetail);
         tvDescription = findViewById(R.id.tvDescription);
-
+        tv_productShop = findViewById(R.id.tv_productShop);
         //productID,type nhận về từ item trong listProduct
         productID = getIntent().getExtras().getString("productID");
         type = getIntent().getExtras().getString("type");
         sourceID = getIntent().getExtras().getString("sourceID");
         shopID = getIntent().getExtras().getString("shopID");
         tvProductName.setText(type);
-
+        tv_productShop.setText(shopID);
         getProductDetails(productID);
 
         imgButtonAdd = findViewById(R.id.imgButtonAdd);

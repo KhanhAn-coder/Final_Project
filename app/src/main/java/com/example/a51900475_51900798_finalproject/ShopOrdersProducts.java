@@ -96,6 +96,14 @@ public class ShopOrdersProducts extends AppCompatActivity {
         });
 
         imgbtnShopOrdersProductsBackCart = findViewById(R.id.imgbtnShopOrdersProductsBackCart);
+
+        imgbtnShopOrdersProductsBackCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShopOrdersProducts.this, ShopCheckOrders.class);
+                startActivity(intent);
+            }
+        });
         rvShopOrdersProducts = findViewById(R.id.rvShopOrdersProducts);
         rvShopOrdersProducts.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 

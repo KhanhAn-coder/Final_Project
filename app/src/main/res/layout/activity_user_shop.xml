@@ -133,15 +133,16 @@
     </LinearLayout>
 
 
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_weight="2"
+        android:id="@+id/bottomNavigationUserProfile"
         android:layout_width="match_parent"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         app:menu="@menu/menu_bottom_nav"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="bottom"
-        android:background="@color/white"/>
+        android:background="@color/white"
+        />
 
 
 
