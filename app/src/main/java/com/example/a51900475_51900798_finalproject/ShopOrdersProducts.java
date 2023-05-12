@@ -1,9 +1,11 @@
 package com.example.a51900475_51900798_finalproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -36,7 +38,7 @@ public class ShopOrdersProducts extends AppCompatActivity {
     Button btnShopOrdersProductsCalculate, btnShopOrdersProductsNext;
     DatabaseReference ShopOrdersProductsRef;
     String userPhone, shopID, address;
-    TextView tvShopOrdersProductsTotalPrice;
+    TextView tvShopOrdersProductsTotalPrice, tvStatusCheck;
     int totalPrice = 0;
 
     @Override
@@ -45,6 +47,35 @@ public class ShopOrdersProducts extends AppCompatActivity {
         setContentView(R.layout.activity_shop_orders_products);
 
 
+
+        tvStatusCheck = findViewById(R.id.tvStatusCheck);
+        tvStatusCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String [] statusList = {"Accepted","On Delivery","Delivered"};
+                int CheckedItem = 1;
+                AlertDialog.Builder builder = new AlertDialog.Builder(ShopOrdersProducts.this);
+                builder.setTitle("Choose Status");
+                builder.setSingleChoiceItems(statusList, CheckedItem, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        switch (i){
+                            case 0:
+                                tvStatusCheck.setText("Accepted");
+                                break;
+                            case 1:
+                                tvStatusCheck.setText("On Delivery");
+                                break;
+                            case 2:
+                                tvStatusCheck.setText("Delivered");
+                                break;
+                        }
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
 
         tvShopOrdersProductsTotalPrice = findViewById(R.id.tvShopOrdersProductsTotalPrice);
 
@@ -120,7 +151,7 @@ public class ShopOrdersProducts extends AppCompatActivity {
         ordersupdateMap.put("shopID",shopID);
         ordersupdateMap.put("totalPrice",totalPrice);
         ordersupdateMap.put("address",address);
-        ordersupdateMap.put("status","Accepted");
+        ordersupdateMap.put("status",tvStatusCheck.getText().toString());
 
         OrdersUpdateRef.child(userPhone).child(shopID)
                 .updateChildren(ordersupdateMap).addOnCompleteListener(new OnCompleteListener<Void>() {

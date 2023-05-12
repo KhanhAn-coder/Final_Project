@@ -5,14 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -48,6 +52,29 @@ public class UserOrders extends AppCompatActivity {
                 holder.tvUserOrsersAddress.setText(model.getAddress());
                 holder.tvUserOrdersTotalPrice.setText(String.valueOf(model.getTotalPrice()));
                 holder.tvUserOrdersStatus.setText(model.getStatus());
+                holder.btnOrderReceived.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (holder.tvUserOrdersStatus.getText().toString().equals("Accepted")){
+                            Toast.makeText(UserOrders.this, "Your order is accepted", Toast.LENGTH_SHORT).show();
+                        }else if (holder.tvUserOrdersStatus.getText().toString().equals("On Delivery")){
+                            Toast.makeText(UserOrders.this, "Your order is delivering to you", Toast.LENGTH_SHORT).show();
+                        } else if (holder.tvUserOrdersStatus.getText().toString().equals("Delivered")) {
+                            FirebaseDatabase.getInstance().getReference()
+                                            .child("Orders Update")
+                                                    .child(LoggedUser.loggedUser.getPhone())
+                                                            .child(model.getShopID())
+                                                                    .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Intent intent = new Intent(UserOrders.this,ProfileUser.class);
+                                            startActivity(intent);
+                                            Toast.makeText(UserOrders.this, "Thanks for your Purchase", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }
+                    }
+                });
             }
 
             @NonNull

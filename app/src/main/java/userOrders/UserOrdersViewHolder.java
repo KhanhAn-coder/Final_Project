@@ -1,6 +1,7 @@
 package userOrders;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import com.example.a51900475_51900798_finalproject.R;
 public class UserOrdersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView tvUserOrdersShopID, tvUserOdersPhoneNumber, tvUserOrsersAddress, tvUserOrdersTotalPrice, tvUserOrdersStatus;
     public ItemClickListener listener;
+    public Button btnOrderReceived;
     public UserOrdersViewHolder(@NonNull View itemView) {
         super(itemView);
         tvUserOrdersShopID = itemView.findViewById(R.id.tvUserOrdersShopID);
@@ -19,6 +21,7 @@ public class UserOrdersViewHolder extends RecyclerView.ViewHolder implements Vie
         tvUserOrsersAddress = itemView.findViewById(R.id.tvUserOrsersAddress);
         tvUserOrdersTotalPrice = itemView.findViewById(R.id.tvUserOrdersTotalPrice);
         tvUserOrdersStatus = itemView.findViewById(R.id.tvUserOrdersStatus);
+        btnOrderReceived = itemView.findViewById(R.id.btnOrderReceived);
 
     }
 

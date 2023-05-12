@@ -112,6 +112,14 @@
                 android:text="100000 đ" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tvStatusCheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:padding="8dp"
+            android:textSize="20sp"/>
+
         <Button
             android:id="@+id/btnShopOrdersProductsNext"
             android:layout_width="match_parent"

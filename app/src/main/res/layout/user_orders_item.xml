@@ -72,6 +72,14 @@
                 android:textColor="#3CB371"/>
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnOrderReceived"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đã nhận được hàng"
+            android:textColor="@color/white"
+            android:backgroundTint="#FF0000"/>
     </LinearLayout>
 
 
