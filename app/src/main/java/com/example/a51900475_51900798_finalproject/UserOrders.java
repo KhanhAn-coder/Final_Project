@@ -17,8 +17,11 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import cartproduct.CartProductViewHolder;
 import userOrders.UserOrdersObject;
@@ -67,9 +70,30 @@ public class UserOrders extends AppCompatActivity {
                                                                     .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
+                                            FirebaseDatabase.getInstance().getReference()
+                                                    .child("Cart List")
+                                                    .child("Admin View")
+                                                    .child(LoggedUser.loggedUser.getPhone())
+                                                    .child("Products")
+                                                    .orderByChild("shopID").equalTo(holder.tvUserOrdersShopID.getText().toString())
+                                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                        @Override
+                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                            for (DataSnapshot childSnapshot : snapshot.getChildren()){
+                                                                childSnapshot.getRef().removeValue();
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                                        }
+                                                    });
                                             Intent intent = new Intent(UserOrders.this,ProfileUser.class);
                                             startActivity(intent);
                                             Toast.makeText(UserOrders.this, "Thanks for your Purchase", Toast.LENGTH_SHORT).show();
+
+
                                         }
                                     });
                         }
