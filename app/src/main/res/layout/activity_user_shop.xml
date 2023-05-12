@@ -10,6 +10,42 @@
     tools:context=".HomePage">
 
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:background="#B6A7F6"
+
+        android:weightSum="4"
+        >
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            >
+
+        </ImageView>
+        <TextView
+            android:id="@+id/userShop_shopName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginTop="10dp"
+            android:text="asa"
+            android:gravity="center_vertical"
+            android:textSize="24sp">
+
+        </TextView>
+
+
+
+    </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,31 +95,13 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#B6A7F6"
-        android:layout_weight="1"
-        >
-        <TextView
-            android:id="@+id/userShop_shopName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="24sp">
-
-        </TextView>
-
-
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:background="@color/white"
-        android:layout_weight="2">
+        android:layout_weight="3">
     </LinearLayout>
 
 
@@ -133,7 +151,12 @@
     </LinearLayout>
 
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:background="@color/white"
+        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationUserProfile"

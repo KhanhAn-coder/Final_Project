@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ import product.Productss;
 
 public class UserShop extends AppCompatActivity {
     Button userShop_btnAdd, userShop_btnCheckOrders;
+    ImageView btn_back;
     DatabaseReference RootRef;
     private RecyclerView userShop_rvProduct;
     BottomNavigationView bottomNavigationUserProfile;
@@ -49,6 +51,15 @@ public class UserShop extends AppCompatActivity {
 
         userShop_shopName = findViewById(R.id.userShop_shopName);
         userShop_shopName.setText(LoggedUser.loggedUser.getShopID());
+
+        btn_back = findViewById(R.id.btn_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserShop.this, ProfileUser.class);
+                startActivity(intent);
+            }
+        });
 
 
         userShop_btnAdd = findViewById(R.id.userShop_btnAdd);
