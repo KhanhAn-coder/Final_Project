@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#DCDCDC"
+        >
+        <TextView
+            android:id="@+id/tvUserOrdersShopID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shop ID"
+            android:textSize="20sp"
+            android:drawableLeft="@drawable/baseline_store_24"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/tvUserOdersPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone number"
+            android:textSize="20sp"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/tvUserOrsersAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="20sp"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/tvUserOrdersTotalPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Price"
+            android:textSize="20sp"
+            android:padding="2dp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="11">
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status:"
+                android:layout_weight="10"
+                android:textSize="20sp"
+                android:padding="2dp"
+                />
+
+            <TextView
+                android:id="@+id/tvUserOrdersStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Accepted"
+                android:textSize="20sp"
+                android:textColor="#3CB371"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
