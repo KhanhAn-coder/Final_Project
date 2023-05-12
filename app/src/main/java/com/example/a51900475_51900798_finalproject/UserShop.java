@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -33,11 +34,14 @@ public class UserShop extends AppCompatActivity {
     Button userShop_btnAdd, userShop_btnCheckOrders;
     DatabaseReference RootRef;
     private RecyclerView userShop_rvProduct;
+    TextView userShop_shopName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_shop);
 
+        userShop_shopName = findViewById(R.id.userShop_shopName);
+        userShop_shopName.setText(LoggedUser.loggedUser.getShopID());
 
 
         userShop_btnAdd = findViewById(R.id.userShop_btnAdd);

@@ -61,11 +61,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#B6A7F6"
         android:layout_weight="1"
         >
+        <TextView
+            android:id="@+id/userShop_shopName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="24sp">
+
+        </TextView>
 
 
 
@@ -122,19 +129,19 @@
           android:layout_height="wrap_content"
           android:layout_weight="3"/>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigation"
-            android:layout_weight="2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:menu="@menu/menu_bottom_nav"
-            android:layout_marginTop="15dp"
-
-            android:background="@color/white"/>
 
     </LinearLayout>
 
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        app:menu="@menu/menu_bottom_nav"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"/>
 
 
 

@@ -19,12 +19,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.HashMap;
 
 public class ShopEditProductDetails extends AppCompatActivity {
     private String category, description, price, name_Product, imageLink , productID;
@@ -54,12 +58,61 @@ public class ShopEditProductDetails extends AppCompatActivity {
 
         showCurrentProductInfo(ProductName, ProductDescription, ProductPrice);
 
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveData();
+            }
+        });
+
+
+    }
+
+    //luu du lieu moi vao database
+    private void saveData() {
+        DatabaseReference prodRef = FirebaseDatabase.getInstance().getReference();
+        prodRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot.child("Products").child(prodName).exists()) {
+                    HashMap<String, Object> productInfo = new HashMap<>();
+
+                    productInfo.put("title", ProductName.getText().toString());
+                    productInfo.put("description", ProductDescription.getText().toString());
+                    productInfo.put("price", Integer.parseInt(ProductPrice.getText().toString()));
+
+                    prodRef.child("Products").child(prodName).updateChildren(productInfo)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(ShopEditProductDetails.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(ShopEditProductDetails.this, HomePage.class);
+                                        startActivity(intent);
+                                    } else {
+
+                                        Toast.makeText(ShopEditProductDetails.this, "Đã xảy ra lỗi khi cập nhật, vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 
     }
 
 
-
+    //Lay thong tin tu database ve
     private void showCurrentProductInfo(EditText productName, EditText productDescription, EditText productPrice) {
 
         DatabaseReference prodRef = FirebaseDatabase.getInstance().getReference().child("Products");
@@ -87,4 +140,6 @@ public class ShopEditProductDetails extends AppCompatActivity {
             }
         });
     }
+
+
 }

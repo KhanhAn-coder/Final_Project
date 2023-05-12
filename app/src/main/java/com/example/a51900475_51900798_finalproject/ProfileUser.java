@@ -10,6 +10,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -52,9 +53,12 @@ public class ProfileUser extends AppCompatActivity {
         setContentView(R.layout.activity_profile_user);
 
         profileUserRV = findViewById(R.id.profileUserRV);
+
+        Log.d("getUsername", LoggedUser.loggedUser.getUsername());
         tvHotSales = findViewById(R.id.tvHotSales);
         profile_tv_username = findViewById(R.id.profile_tv_username);
 //        profile_tv_username.setText(LoggedUser.loggedUser.getUsername());
+        profile_tv_username.setText("Xin chào! "+String.valueOf(LoggedUser.loggedUser.getUsername()));
 
         listUserExtensions.add("Đã thích");
         listUserExtensions.add("Bắt đầu bán hàng");

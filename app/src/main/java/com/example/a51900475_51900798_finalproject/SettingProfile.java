@@ -89,7 +89,6 @@ public class SettingProfile extends AppCompatActivity {
     private void updateInfo() {
 
 
-
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference();
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
