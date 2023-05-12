@@ -71,12 +71,9 @@ public class ProfileUserExtensionsAdapter extends RecyclerView.Adapter<ProfileUs
                     else if (extensions.getText().toString().equals("Bắt đầu bán hàng"))
                     {
                         checkValid(LoggedUser.loggedUser.getPhone(),itemView.getContext());
-//                        Log.d("CheckCred", String.valueOf(checkValid(LoggedUser.loggedUser.getPhone())));
-//                        Toast.makeText(itemView.getContext(), "Thiết lập tài khoản", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(itemView.getContext(), SettingProfile.class);
-//                        itemView.getContext().startActivity(intent);
-
-
+                    } else if (extensions.getText().toString().equals("Đăng xuất")) {
+                        Intent intent = new Intent(itemView.getContext(), SignIn.class);
+                        itemView.getContext().startActivity(intent);
 
                     }
                 }

@@ -59,9 +59,9 @@ public class UserOrders extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull UserOrdersViewHolder holder, int position, @NonNull UserOrdersObject model) {
                 holder.tvUserOrdersShopID.setText(model.getShopID());
-                holder.tvUserOdersPhoneNumber.setText(model.getPhoneNumber());
-                holder.tvUserOrsersAddress.setText(model.getAddress());
-                holder.tvUserOrdersTotalPrice.setText(String.valueOf(model.getTotalPrice()));
+                holder.tvUserOdersPhoneNumber.setText("Phone number: "+model.getPhoneNumber());
+                holder.tvUserOrsersAddress.setText("Address: "+model.getAddress());
+                holder.tvUserOrdersTotalPrice.setText("Price: "+String.valueOf(model.getTotalPrice()));
                 holder.tvUserOrdersStatus.setText(model.getStatus());
                 holder.btnOrderReceived.setOnClickListener(new View.OnClickListener() {
                     @Override

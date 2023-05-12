@@ -78,6 +78,7 @@ public class ProfileUser extends AppCompatActivity {
         listUserExtensions.add("Bắt đầu bán hàng");
         listUserExtensions.add("Đánh giá của tôi");
         listUserExtensions.add("Thiết lập tài khoản");
+        listUserExtensions.add("Đăng xuất");
 
         profileUserExtensionsAdapter = new ProfileUserExtensionsAdapter(listUserExtensions);
 
