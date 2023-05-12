@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,10 +48,23 @@ public class ProfileUser extends AppCompatActivity {
 
     ProductAdapter productAdapter;
     TextView tvHotSales, profile_tv_username;
+
+    ImageButton btnOrderCheck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_user);
+
+        btnOrderCheck = findViewById(R.id.btnOrderCheck);
+        btnOrderCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileUser.this, UserOrders.class);
+                intent.putExtra("code","success");
+                startActivity(intent);
+                finish();
+            }
+        });
 
         profileUserRV = findViewById(R.id.profileUserRV);
 

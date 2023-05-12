@@ -118,7 +118,7 @@ public class ShopOrdersProducts extends AppCompatActivity {
         final HashMap<String,Object> ordersupdateMap = new HashMap<>();
         ordersupdateMap.put("phoneNumber",userPhone);
         ordersupdateMap.put("shopID",shopID);
-        ordersupdateMap.put("totalPrice",String.valueOf(totalPrice));
+        ordersupdateMap.put("totalPrice",totalPrice);
         ordersupdateMap.put("address",address);
         ordersupdateMap.put("status","Accepted");
 
