@@ -202,11 +202,14 @@ public class ProuctDetails extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.exists()){
+
                     Productss productss = snapshot.getValue(Productss.class);
+                    int newPrice = productss.getPrice() - productss.getPrice()*productss.getSales()/100;
                     tvDetailName.setText(productss.getTitle());
-                    tvDetailPrice.setText(String.valueOf(productss.getPrice()));
+                    tvDetailPrice.setText(String.valueOf(newPrice));
                     DetailRating.setText(String.valueOf(productss.getRating()));
                     tvDescription.setText(productss.getDescription());
+                    Toast.makeText(ProuctDetails.this, "Price: "+ newPrice, Toast.LENGTH_SHORT).show();
 
 
 
