@@ -33,6 +33,14 @@ public class ShopCheckOrders extends AppCompatActivity {
 
         imgButtonBackShopCheckOrders = findViewById(R.id.imgButtonBackShopCheckOrders);
 
+        imgButtonBackShopCheckOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShopCheckOrders.this, UserShop.class);
+                startActivity(intent);
+            }
+        });
+
         rv_ShopCheckOrders = findViewById(R.id.rv_ShopCheckOrders);
         rv_ShopCheckOrders.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 

@@ -29,14 +29,18 @@ import product.Productss;
 
 public class ProuctDetails extends AppCompatActivity {
     ImageView imageViewDetail;
+
+    int limit = 0;
     TextView tvDetailName, tvDetailPrice, tvAmount, DetailRating, tvProductName, tvDescription, tv_productShop;
     ImageButton imgButtonAdd, imgButtonRemove, imgButtonBack_Detail;
     Button btnAddtoChart;
     final int code = 0;
     String productID = "";
     String type;
+    int Sales, Limit;
     String sourceID;
     String shopID;
+
     int randomKey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,27 +60,56 @@ public class ProuctDetails extends AppCompatActivity {
         type = getIntent().getExtras().getString("type");
         sourceID = getIntent().getExtras().getString("sourceID");
         shopID = getIntent().getExtras().getString("shopID");
+        Sales = getIntent().getExtras().getInt("Sales");
+        Limit = getIntent().getExtras().getInt("Limit");
         tvProductName.setText(type);
         tv_productShop.setText(shopID);
         getProductDetails(productID);
 
         imgButtonAdd = findViewById(R.id.imgButtonAdd);
         imgButtonAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String amount = tvAmount.getText().toString();
-                int count = Integer.parseInt(amount)+1;
-                tvAmount.setText(String.valueOf(count));
-            }
-        });
+                                            @Override
+                                            public void onClick(View view) {
+                                                limit++;
+//                                                Toast.makeText(ProuctDetails.this, "Sales is: " + Sales, Toast.LENGTH_SHORT).show();
+//                                                Toast.makeText(ProuctDetails.this, "limit: "+limit, Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(ProuctDetails.this, "Limit: "+Limit, Toast.LENGTH_SHORT).show();
+                                                if (Sales != 0){
+
+                                                    if (limit < Limit){
+                                                        String amount = tvAmount.getText().toString();
+                                                        int count = Integer.parseInt(amount) + 1;
+                                                        tvAmount.setText(String.valueOf(count));
+                                                    }else {
+                                                        Toast.makeText(ProuctDetails.this, "Đạt giới hạn", Toast.LENGTH_SHORT).show();
+                                                    }
+
+
+                                                }else {
+                                                    String amount = tvAmount.getText().toString();
+                                                    int count = Integer.parseInt(amount) + 1;
+                                                    tvAmount.setText(String.valueOf(count));
+                                                }
+
+
+
+                                            }
+                                        });
 
         imgButtonRemove = findViewById(R.id.imgButtonRemove);
         imgButtonRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String amount = tvAmount.getText().toString();
                 int count = Integer.parseInt(amount)-1;
-                tvAmount.setText(String.valueOf(count));
+                if (count == 0){
+                    Toast.makeText(ProuctDetails.this, "Sản phẩm không được có số lượng bằng 0", Toast.LENGTH_SHORT).show();
+                }else
+                {
+                    tvAmount.setText(String.valueOf(count));
+                }
+
             }
         });
         imgButtonBack_Detail = findViewById(R.id.imgButtonBack_Detail);
@@ -171,6 +204,9 @@ public class ProuctDetails extends AppCompatActivity {
                     tvDetailPrice.setText(String.valueOf(productss.getPrice()));
                     DetailRating.setText(String.valueOf(productss.getRating()));
                     tvDescription.setText(productss.getDescription());
+
+
+
                     Picasso.get().load(productss.getSourceID()).into(imageViewDetail);
                 }
             }

@@ -2,6 +2,8 @@ package product;
 
 public class Productss {
     private String title;
+
+    private int Sales, Limit;
     private int price;
     private double rating;
     private double sold;
@@ -97,5 +99,21 @@ public class Productss {
         this.description = description;
         this.productID = productID;
         this.shopID = shopID;
+    }
+
+    public int getSales() {
+        return Sales;
+    }
+
+    public void setSales(int sales) {
+        Sales = sales;
+    }
+
+    public int getLimit() {
+        return Limit;
+    }
+
+    public void setLimit(int limit) {
+        Limit = limit;
     }
 }

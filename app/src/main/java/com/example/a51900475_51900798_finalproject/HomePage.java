@@ -146,10 +146,13 @@ public class HomePage extends AppCompatActivity {
                     public void onClick(View view) {
                         Intent intent = new Intent(HomePage.this,ProuctDetails.class);
                         Bundle extras = new Bundle();
+
                         extras.putString("productID",model.getProductID());
                         extras.putString("type",model.getType());
                         extras.putString("sourceID", model.getSourceID());
                         extras.putString("shopID",model.getShopID());
+                        extras.putInt("Sales",model.getSales());
+                        extras.putInt("Limit",model.getLimit());
                         intent.putExtras(extras);
                         startActivity(intent);
                     }

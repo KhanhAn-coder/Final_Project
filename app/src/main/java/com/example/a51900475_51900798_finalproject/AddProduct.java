@@ -119,7 +119,7 @@ public class AddProduct extends AppCompatActivity {
 
     private void storagedProductInformation() {
         randomKey = getRandomNumber(10000, 99999);
-        productID = name_Product + String.valueOf(randomKey);
+        productID = name_Product + " "+String.valueOf(randomKey);
 
         StorageReference filePath = ProductImageRef.child(imageUri.getLastPathSegment() + productID + ".png");
 
