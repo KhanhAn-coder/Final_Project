@@ -6,16 +6,58 @@ public class CartProduct {
     private int price;
     private String sourceID;
     private int quantity;
+    private String shopID;
+    private int Sales;
+    private int Limit;
+    private String type;
+
+
     public CartProduct(){
 
     }
 
-    public CartProduct(String productName, String productID, int price, String sourceID, int quantity) {
+    public CartProduct(String productName, String productID, int price, String sourceID, int quantity, String shopID, int sales, int limit, String type) {
         this.productName = productName;
         this.productID = productID;
         this.price = price;
         this.sourceID = sourceID;
         this.quantity = quantity;
+        this.shopID = shopID;
+        Sales = sales;
+        Limit = limit;
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getShopID() {
+        return shopID;
+    }
+
+    public void setShopID(String shopID) {
+        this.shopID = shopID;
+    }
+
+    public int getSales() {
+        return Sales;
+    }
+
+    public void setSales(int sales) {
+        Sales = sales;
+    }
+
+    public int getLimit() {
+        return Limit;
+    }
+
+    public void setLimit(int limit) {
+        Limit = limit;
     }
 
     public String getProductName() {

@@ -73,7 +73,7 @@ public class ProuctDetails extends AppCompatActivity {
                                                 limit++;
 //                                                Toast.makeText(ProuctDetails.this, "Sales is: " + Sales, Toast.LENGTH_SHORT).show();
 //                                                Toast.makeText(ProuctDetails.this, "limit: "+limit, Toast.LENGTH_SHORT).show();
-                                                Toast.makeText(ProuctDetails.this, "Limit: "+Limit, Toast.LENGTH_SHORT).show();
+                                           //     Toast.makeText(ProuctDetails.this, "Limit: "+Limit, Toast.LENGTH_SHORT).show();
                                                 if (Sales != 0){
 
                                                     if (limit < Limit){
@@ -164,6 +164,9 @@ public class ProuctDetails extends AppCompatActivity {
         cartMap.put("price",Integer.parseInt(tvDetailPrice.getText().toString()));
         cartMap.put("date",saveCurrentDate);
         cartMap.put("time",saveCurrentTime);
+        cartMap.put("Limit",Limit);
+        cartMap.put("Sales",Sales);
+        cartMap.put("type",type);
         cartMap.put("quantity",Integer.parseInt(tvAmount.getText().toString()));
 
         cartListRef.child("User View").child(LoggedUser.loggedUser.getPhone()).child("Products").child(productID)

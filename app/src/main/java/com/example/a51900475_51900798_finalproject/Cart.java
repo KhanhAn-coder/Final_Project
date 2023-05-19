@@ -122,6 +122,10 @@ public class Cart extends AppCompatActivity {
                                    Bundle extras = new Bundle();
                                    extras.putString("productID", model.getProductID());
                                    extras.putString("sourceID",model.getSourceID());
+                                   extras.putString("shopID",model.getShopID());
+                                   extras.putInt("Limit",model.getLimit());
+                                   extras.putInt("Sales",model.getSales());
+                                   extras.putString("type", model.getType());
                                    intent.putExtras(extras);
                                    startActivity(intent);
                                }
